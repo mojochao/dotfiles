@@ -2,7 +2,6 @@
 dotfiles=(
     ".gitconfig"
     ".gitignore"
-    ".gitignore_global"
     ".tmux.conf"
 )
 for dotfile in "${dotfiles[@]}"; do

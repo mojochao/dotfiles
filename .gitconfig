@@ -4,7 +4,7 @@
 
 [core]
 	editor = emacs
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.gitignore
 
 [alias]
 	clog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -35,10 +35,6 @@
 # Guess what you really meant
 [help]
 	autocorrect = 1
-
-# Tell git you have a global .gitignore
-[core]
-	excludesfile = ~/.gitignore
 
 # Tell where are the diff from,
 # instead of using a and b notation
