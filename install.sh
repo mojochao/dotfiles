@@ -7,6 +7,6 @@ dotfiles=(
 for dotfile in "${dotfiles[@]}"; do
     if [ ! -f $HOME/$dotfile ]; then
 	echo installing $dotfile
-	ln -s $PWD/$dotfile $HOME/$dotfile
+	ln -fs $PWD/$dotfile $HOME/$dotfile
     fi
 done
