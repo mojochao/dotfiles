@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 dotfiles=(
+    ".gitattributes"
     ".gitconfig"
     ".gitignore"
     ".tmux.conf"
