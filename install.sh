@@ -3,6 +3,7 @@ dotfiles=(
     ".gitconfig"
     ".gitignore"
     ".tmux.conf"
+    ".vimrc"
 )
 for dotfile in "${dotfiles[@]}"; do
     if [ ! -f $HOME/$dotfile ]; then

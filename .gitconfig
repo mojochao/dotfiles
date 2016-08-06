@@ -1,10 +1,10 @@
 [user]
-	name = Allen Gooch
-	email = agooch@samba.tv
+	name = Richard Hendricks
+	email = rhendricks@piedpiper.com
 
 [core]
 	editor = emacs
-	excludesfile = /Users/allengooch/.gitignore
+	excludesfile = ~/.gitignore
 
 [alias]
 	clog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
