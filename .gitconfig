@@ -3,7 +3,7 @@
 	email = rhendricks@piedpiper.com
 
 [core]
-	editor = emacs
+	editor = vim
 	excludesfile = ~/.gitignore
 
 [alias]
