@@ -3,6 +3,7 @@ dotfiles=(
     ".gitattributes"
     ".gitconfig"
     ".gitignore"
+    ".spacemacs"
     ".tmux.conf"
     ".vimrc"
 )
