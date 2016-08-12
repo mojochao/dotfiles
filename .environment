@@ -1,0 +1,54 @@
+# -*- mode: sh -*-
+##############################################################################
+#
+# set environment variables
+#
+##############################################################################
+
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export MANPATH=$MANPATH:$HOME/share/man
+export TERM=xterm-256color
+
+export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
+
+
+# Add groovy to path
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
+# Add android sdk to path
+export SDK_DIR=$HOME/sdk
+export ANDROID_SDK_ROOT=$SDK_DIR/android-sdk-macosx
+export ANDROID_HOME=$ANDROID_SDK_ROOT
+export NDK_ROOT=$HOME/skd/android-ndk-r10e
+export PATH=$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$NDK_ROOT:$PATH
+
+# Load virtualenvwrapper support
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Load private environment
+if [ -f ~/.private ]; then
+    source ~/.private
+fi
+
+# Use Emacs.app on macOS
+if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
+    EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
+    export PATH=$EMACS_APP_BIN:$PATH
+    alias emacs='open -a Emacs.app ${@:2}'
+fi
+
+alias ec='emacsclient -n'    # mnemonic 'emacsclient in gui'
+alias et='emacsclient -nw'   # mnemonic 'emacsclient in terminal'
+
+# Launch browsers on cli
+alias chrome='open -a "Google Chrome"'
+alias firefox='open -a "Firefox"'
+alias safari='open -a "Safari"'
+
+#alias wp='webpack --colors --progress'
+#alias wps='webpack-dev-server --colors --progress'
+
+alias serve='python3 -m http.server'
+
+alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
