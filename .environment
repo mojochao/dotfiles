@@ -9,9 +9,37 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man
 export TERM=xterm-256color
+export EDITOR=vim
+export VISUAL=vim
 
-export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
+# Load private environment
+if [ -f ~/.private ]; then
+    source ~/.private
+fi
 
+# macos-specific configuration
+if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
+    # Use Emacs.app on macOS
+    EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
+    export PATH=$EMACS_APP_BIN:$PATH
+    alias emacs='open -a Emacs.app ${@:2}'
+
+    # Define some useful locations
+    export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
+
+    # Launch browsers on cli
+    alias chrome='open -a "Google Chrome"'
+    alias firefox='open -a "Firefox"'
+    alias safari='open -a "Safari"'
+fi
+
+# Define some useful emacs shortcuts
+alias ec='emacsclient -n'    # mnemonic 'emacsclient in gui'
+alias et='emacsclient -nw'   # mnemonic 'emacsclient in terminal'
+
+alias serve='python3 -m http.server'
+
+alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
 
 # Add groovy to path
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
@@ -25,30 +53,3 @@ export PATH=$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform
 
 # Load virtualenvwrapper support
 source /usr/local/bin/virtualenvwrapper.sh
-
-# Load private environment
-if [ -f ~/.private ]; then
-    source ~/.private
-fi
-
-# Use Emacs.app on macOS
-if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
-    EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
-    export PATH=$EMACS_APP_BIN:$PATH
-    alias emacs='open -a Emacs.app ${@:2}'
-fi
-
-alias ec='emacsclient -n'    # mnemonic 'emacsclient in gui'
-alias et='emacsclient -nw'   # mnemonic 'emacsclient in terminal'
-
-# Launch browsers on cli
-alias chrome='open -a "Google Chrome"'
-alias firefox='open -a "Firefox"'
-alias safari='open -a "Safari"'
-
-#alias wp='webpack --colors --progress'
-#alias wps='webpack-dev-server --colors --progress'
-
-alias serve='python3 -m http.server'
-
-alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
