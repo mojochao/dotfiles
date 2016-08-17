@@ -1,0 +1,14 @@
+# -*- mode: sh -*-
+if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
+    alias chrome='open -a "Google Chrome"'
+    alias firefox='open -a "Firefox"'
+    alias safari='open -a "Safari"'
+    
+    alias ea='open -a Emacs.app ${@:2}'
+fi
+
+alias ec='emacsclient -n'    # mnemonic 'emacsclient in gui'
+alias et='emacsclient -nw'   # mnemonic 'emacsclient in terminal'
+alias ev='emacs -q -nw'
+
+alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'

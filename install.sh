@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 dotfiles=(
+    ".aliases"
     ".environment"
     ".gitattributes"
     ".gitconfig"
