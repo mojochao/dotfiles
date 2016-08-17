@@ -1,14 +1,20 @@
 # -*- mode: sh -*-
-if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
-    
+
     alias ea='open -a Emacs.app ${@:2}'
 fi
 
-alias ec='emacsclient -n'    # mnemonic 'emacsclient in gui'
-alias et='emacsclient -nw'   # mnemonic 'emacsclient in terminal'
-alias ev='emacs -q -nw'
+alias eg='emacsclient -n'    # (e)macsclient in (g)ui
+alias et='emacsclient -nw'   # (e)macsclient in (t)terminal
+alias ev='emacs -q -nw'      # (e)macs (v)anilla
+
+alias e=ec    # (e)edit
+alias t=tree  # (t)ree
+alias v=less  # (v)iew
 
 alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
+
+alias nukepyc="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"

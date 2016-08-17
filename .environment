@@ -3,11 +3,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man
 export TERM=xterm-256color
 export EDITOR=vim
-export VISUAL=vim
+export VISUAL=$EDITOR
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 export SDK_DIR=$HOME/sdk
 
-if [[ "$OSTYPE" =~ "^darwin.*" ]]; then
+if [[ "$OSTYPE" == darwin* ]]; then
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
     export PATH=$EMACS_APP_BIN:$PATH
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
@@ -18,6 +20,9 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 export NDK_ROOT=$HOME/skd/android-ndk-r10e
 export PATH=$ANDROID_SDK_ROOT:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$NDK_ROOT:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
