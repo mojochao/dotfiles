@@ -306,6 +306,7 @@ you should place your code here."
   (define-key global-map [s-return] 'toggle-frame-fullscreen)
   (define-key global-map (kbd "s-=") 'text-scale-increase)
   (define-key global-map (kbd "s--") 'text-scale-decrease)
+  (setq helm-ag-use-agignore t)
   (setq powerline-default-separator 'alternate)
   (setq insert-directory-program (executable-find "gls"))
   (require 'key-chord)
