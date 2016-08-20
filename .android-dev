@@ -1,3 +1,4 @@
+# -*- mode: sh -*-
 if [[ "$OSTYPE" == darwin* ]]; then
     export ANDROID_SDK_ROOT=$SDK_DIR/android-sdk-macosx
     export NDK_ROOT=$SDK_DIR/android-ndk-r10e
