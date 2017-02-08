@@ -33,3 +33,9 @@ fi
 if [[ -s ~/.android-dev ]]; then
     source ~/.android-dev
 fi
+
+# for haskell stack usage
+export PATH=$PATH:~/.local/bin
+
+# for Go development
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
