@@ -1,0 +1,10 @@
+.aliases
+.environment
+.gitattributes
+.gitconfig
+.gitignore
+.spacemacs
+.tmux.conf
+.vimrc
+.lein/profiles.clj
+
