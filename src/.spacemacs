@@ -305,6 +305,23 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq-default dotspacemacs-line-numbers 'relative)
+
+  ;; configure for web development
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   react-mode-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+  (add-to-list 'auto-mode-alist '(".babelrc\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
+  (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
+  (add-to-list 'auto-mode-alist '(".editorconfig\\'" . json-mode))
+
   (fset 'evil-define-visual-selection 'ignore)
   (define-key global-map [s-return] 'toggle-frame-fullscreen)
   (define-key global-map (kbd "s-=") 'text-scale-increase)
@@ -312,13 +329,11 @@ you should place your code here."
   (setq helm-ag-use-agignore t)
   (setq powerline-default-separator 'alternate)
   (setq insert-directory-program (executable-find "gls"))
+
   (require 'key-chord)
   (key-chord-mode 1)
   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
-  (add-to-list 'auto-mode-alist '(".babelrc\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
-  (add-to-list 'auto-mode-alist '(".editorconfig\\'" . json-mode)))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
