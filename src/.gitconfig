@@ -50,3 +50,5 @@
 	trustExitCode = true
 [init]
 	templatedir = ~/.git-templates
+[rerere]
+	enabled = true
