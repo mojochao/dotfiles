@@ -31,43 +31,41 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     elm
-     elixir
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
-     auto-completion
      ;; better-defaults
+     ansible
+     auto-completion
+     c-c++
+     docker
+     elixir
+     elm
      emacs-lisp
      git
-     markdown
-     org
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     ;; spell-checking
-     syntax-checking
-     themes-megapack
-     ;; version-control
-     ansible
-     docker
-     react
-     c-c++
-     emacs-lisp
      go
      haskell
+     helm
      html
      ipython-notebook
      javascript
      lua
      markdown
+     org
      python
+     react
      ruby
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      shell-scripts
+     ;; spell-checking
      sql
+     syntax-checking
+     themes-megapack
+     ;; version-control
      typescript
      yaml
      )
