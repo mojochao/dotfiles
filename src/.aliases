@@ -21,3 +21,5 @@ alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
 alias nukepyc="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
 
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+
+alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
