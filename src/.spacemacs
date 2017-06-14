@@ -325,8 +325,16 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (menu-bar-mode -1)
+  ;; configure for web development
   (setq-default js2-basic-offset 2
-                js-indent-level 2)
+                js-indent-level 2
+                react-mode-offset 2
+                ;; web-mode
+                css-indent-offset 2
+                web-mode-markup-indent-offset 2
+                web-mode-css-indent-offset 2
+                web-mode-code-indent-offset 2
+                web-mode-attr-indent-offset 2)
   )
 
 (defun dotspacemacs/user-config ()
@@ -336,17 +344,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; configure for web development
-  (setq-default
-   ;; js2-mode
-   js2-basic-offset 2
-   react-mode-offset 2
-   ;; web-mode
-   css-indent-offset 2
-   web-mode-markup-indent-offset 2
-   web-mode-css-indent-offset 2
-   web-mode-code-indent-offset 2
-   web-mode-attr-indent-offset 2)
   (add-to-list 'auto-mode-alist '(".babelrc\\'" . json-mode))
   (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
   (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
