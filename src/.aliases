@@ -23,3 +23,5 @@ alias nukepyc="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/
 alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
 
 alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
+
+alias pgcli='pgcli --less-chatty'
