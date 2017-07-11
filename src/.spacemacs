@@ -47,6 +47,7 @@ values."
      erlang
      emacs-lisp
      git
+     gnus
      go
      haskell
      helm
@@ -365,6 +366,11 @@ you should place your code here."
   (with-eval-after-load "sql"
     (add-to-list 'sql-postgres-login-params '(port :default 5432)))
   (setq gdb-many-windows t)
+  (setq gnus-secondary-select-methods
+        '(
+          (nntp "gmane" (nntp-address "news.gmane.org"))
+          (nntp "news.gwene.org")
+          ))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
