@@ -12,7 +12,7 @@ alias eg='emacsclient -n'    # (e)macsclient in (g)ui
 alias et='emacsclient -nw'   # (e)macsclient in (t)terminal
 alias ev='emacs -q -nw'      # (e)macs (v)anilla
 
-alias e=ec    # (e)edit
+alias e=eg    # (e)edit
 alias t=tree  # (t)ree
 alias v=less  # (v)iew
 
