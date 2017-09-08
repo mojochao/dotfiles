@@ -1,5 +1,7 @@
 :syntax on
 
+set relativenumber
+
 "esc is too far away
 inoremap <special> jk <ESC>
 
