@@ -28,4 +28,8 @@ alias pgcli='pgcli --less-chatty'
 
 alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
 
+# Convenience alias to init a new git repository with initial content.
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
+
+# Convenience alias to rebuild a elixir ecto database.
+alias ectoject='mix ecto.drop && mix ecto.create && mix ecto.migrate'
