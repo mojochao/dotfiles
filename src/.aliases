@@ -27,3 +27,5 @@ alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
 alias pgcli='pgcli --less-chatty'
 
 alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
+
+alias gitiac='git init && git add . && git commit -m "Initial commit."'
