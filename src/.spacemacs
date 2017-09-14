@@ -366,12 +366,10 @@ you should place your code here."
   (with-eval-after-load "sql"
     (add-to-list 'sql-postgres-login-params '(port :default 5432)))
   (setq gdb-many-windows t)
-
   ;; Keyboard smooth scrolling: Prevent the awkward "snap to re-center" when
   ;; the text cursor moves off-screen. Instead, only scroll the minimum amount
   ;; necessary to show the new line. (A number of 101+ disables re-centering.)
   (setq scroll-conservatively 101)
-
   ;; Optimize mouse wheel scrolling for smooth-scrolling trackpad use.
   ;; Trackpads send a lot more scroll events than regular mouse wheels,
   ;; so the scroll amount and acceleration must be tuned to smooth it out.
@@ -385,12 +383,9 @@ you should place your code here."
    ;; a time (instead of 5 at default). Simply hold down shift to move twice as
    ;; fast, or hold down control to move 3x as fast. Perfect for trackpads.
    mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . 6)))
-
-  (setq gnus-secondary-select-methods
-        '(
-          (nntp "gmane" (nntp-address "news.gmane.org"))
-          (nntp "news.gwene.org")
-          ))
+  ;; configure org babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((python . t) (shell . t) (sql . t)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
