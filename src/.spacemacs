@@ -400,6 +400,8 @@ you should place your code here."
    ;; a time (instead of 5 at default). Simply hold down shift to move twice as
    ;; fast, or hold down control to move 3x as fast. Perfect for trackpads.
    mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . 6)))
+  ;; https://github.com/syl20bnr/spacemacs/issues/8334
+  (spacemacs|use-package-add-hook org :pre-init (package-initialize))
   ;; configure org babel
   (with-eval-after-load 'org
     (org-babel-do-load-languages
