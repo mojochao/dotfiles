@@ -362,7 +362,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq frame-resize-pixelwise t)
-  (setq ns-right-command-modifier 'meta)
+  (when (eq system-type "darwin")
+    (setq ns-option-modifier 'meta)
+    (setq ns-right-option-modifier 'meta))
   (add-to-list 'auto-mode-alist '(".babelrc\\'" . json-mode))
   (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
   (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
