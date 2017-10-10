@@ -3,6 +3,7 @@
 .gitattributes
 .gitconfig
 .gitignore
+.ideavimrc
 .spacemacs
 .tmux.conf
 .vimrc
