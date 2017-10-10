@@ -6,6 +6,5 @@
 .ideavimrc
 .spacemacs
 .tmux.conf
-.vimrc
 .lein/profiles.clj
 
