@@ -372,6 +372,10 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
   (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
   (add-to-list 'auto-mode-alist '(".editorconfig\\'" . json-mode))
+  ;; sql-mode
+  (add-hook 'sql-interactive-mode-hook
+            (lambda ()
+              (toggle-truncate-lines t)))
   ;; elixir-mode
   (setq flycheck-elixir-credo-strict t)
   ;; usability enhancements
@@ -405,6 +409,8 @@ you should place your code here."
    ;; a time (instead of 5 at default). Simply hold down shift to move twice as
    ;; fast, or hold down control to move 3x as fast. Perfect for trackpads.
    mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . 6)))
+  ;; workaround for broken package https://github.com/syl20bnr/spacemacs/issues/9549
+  (require 'helm-bookmark)
   ;; https://github.com/syl20bnr/spacemacs/issues/8334
   (spacemacs|use-package-add-hook org :pre-init (package-initialize))
   ;; configure org babel
