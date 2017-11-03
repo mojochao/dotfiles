@@ -420,8 +420,9 @@ you should place your code here."
      'org-babel-load-languages '((python . t)
                                  (http . t)
                                  (shell . t)
-                                 (sql . t)))
-    ))
+                                 (sql . t))))
+  (blink-cursor-mode t)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
