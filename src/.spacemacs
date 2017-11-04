@@ -374,12 +374,25 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '(".eslintignore\\'" . gitignore-mode))
   (add-to-list 'auto-mode-alist '(".eslintrc\\'" . json-mode))
   (add-to-list 'auto-mode-alist '(".editorconfig\\'" . json-mode))
+  ;; elixir-mode
+  (setq flycheck-elixir-credo-strict t)
+  ;; elm-mode
+  (setq elm-indent-offset 2)
+  ;; org-mode
+  (with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages '((python . t)
+                                 (http . t)
+                                 (shell . t)
+                                 (sql . t))))
+  ;;; https://github.com/syl20bnr/spacemacs/issues/8334
+  (spacemacs|use-package-add-hook org :pre-init (package-initialize))
   ;; sql-mode
   (add-hook 'sql-interactive-mode-hook
             (lambda ()
               (toggle-truncate-lines t)))
-  ;; elixir-mode
-  (setq flycheck-elixir-credo-strict t)
+  (with-eval-after-load "sql"
+    (add-to-list 'sql-postgres-login-params '(port :default 5432)))
   ;; usability enhancements
   (fset 'evil-define-visual-selection 'ignore)
   (define-key global-map [s-return] 'toggle-frame-fullscreen)
@@ -391,8 +404,6 @@ you should place your code here."
   (require 'key-chord)
   (key-chord-mode 1)
   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
-  (with-eval-after-load "sql"
-    (add-to-list 'sql-postgres-login-params '(port :default 5432)))
   (setq gdb-many-windows t)
   ;; Keyboard smooth scrolling: Prevent the awkward "snap to re-center" when
   ;; the text cursor moves off-screen. Instead, only scroll the minimum amount
@@ -413,15 +424,7 @@ you should place your code here."
    mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . 6)))
   ;; workaround for broken package https://github.com/syl20bnr/spacemacs/issues/9549
   (require 'helm-bookmark)
-  ;; https://github.com/syl20bnr/spacemacs/issues/8334
-  (spacemacs|use-package-add-hook org :pre-init (package-initialize))
-  ;; configure org babel
-  (with-eval-after-load 'org
-    (org-babel-do-load-languages
-     'org-babel-load-languages '((python . t)
-                                 (http . t)
-                                 (shell . t)
-                                 (sql . t))))
+  ;; In case I lose track of where I am
   (blink-cursor-mode t)
   )
 
