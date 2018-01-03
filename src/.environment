@@ -1,5 +1,5 @@
 # -*- mode: sh -*-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man
 export TERM=xterm-256color
 export EDITOR=vim
@@ -31,15 +31,10 @@ if [[ -f ~/.private ]]; then
     source ~/.private
 fi
 
-if [[ -s ~/.android-dev ]]; then
-    source ~/.android-dev
-fi
-
 # for haskell stack usage
 export PATH=$PATH:~/.local/bin
 
 # for Go development
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-# PostgreSQL server
-export PGDATA=/usr/local/var/postgres
+
