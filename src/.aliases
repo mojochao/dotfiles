@@ -1,38 +1,60 @@
 # -*- mode: sh -*-
-if [[ "$OSTYPE" == darwin* ]]; then
-    alias chrome='open -a "Google Chrome"'
-    alias firefox='open -a "Firefox"'
-    alias safari='open -a "Safari"'
-
-    alias ea='open -a Emacs.app ${@:2}'
-fi
-
-alias ag='ag --hidden'
-alias eg='emacsclient -n'    # (e)macsclient in (g)ui
-alias et='emacsclient -nw'   # (e)macsclient in (t)terminal
-alias ev='emacs -q -nw'      # (e)macs (v)anilla
-
+# ----------------------------------------------------------------------------
+# I'm _really_ lazy on the comnmand line.
+# ----------------------------------------------------------------------------
 alias e=eg    # (e)edit
 alias t=tree  # (t)ree
 alias v=less  # (v)iew
 
-alias docker-rm-dangling='docker rmi $(docker images -f "dangling=true" -q)'
-
-alias nukepyc="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
-
-alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
-
-alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
-
+# ----------------------------------------------------------------------------
+# Change default behavior.
+# ----------------------------------------------------------------------------
+alias ag='ag --hidden'
 alias pgcli='pgcli --less-chatty'
 
+# ----------------------------------------------------------------------------
+# macOS-specific aliases.
+# ----------------------------------------------------------------------------
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+    alias chrome='open -a "Google Chrome"'
+    alias firefox='open -a "Firefox"'
+    alias safari='open -a "Safari"'
+    alias ea='open -a Emacs.app ${@:2}'
+fi
+
+# ----------------------------------------------------------------------------
+# Emacs
+# ----------------------------------------------------------------------------
+alias eg='emacsclient -n'    # (e)macsclient in (g)ui
+alias et='emacsclient -nw'   # (e)macsclient in (t)terminal
+alias ev='emacs -q -nw'      # (e)macs (v)anilla
+
+# ----------------------------------------------------------------------------
+# Elixir
+# ----------------------------------------------------------------------------
+alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
+
+# ----------------------------------------------------------------------------
+# Python
+# ----------------------------------------------------------------------------
+alias pycnuke="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
+
+# ----------------------------------------------------------------------------
+# Virtualbox
+# ----------------------------------------------------------------------------
 alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
 
+# ----------------------------------------------------------------------------
+# Git
+# ----------------------------------------------------------------------------
 # Convenience alias to init a new git repository with initial content.
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
 
-# Convenience alias to rebuild a elixir ecto database.
-alias ectoject='mix ecto.drop && mix ecto.create && mix ecto.migrate'
-
+# ----------------------------------------------------------------------------
+# Docker
+# ----------------------------------------------------------------------------
+alias dockme_rm_stopped="docker rm $(docker ps -a | grep Exited | awk '{print $1}')"
+alias dockme_rmi_dangling='docker rmi $(docker images -q --filter "dangling=true")'
 # Sen is a cool docker tui.  See https://github.com/TomasTomecek/sen for more.
 alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
