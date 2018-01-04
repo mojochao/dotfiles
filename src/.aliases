@@ -26,9 +26,9 @@ fi
 # ----------------------------------------------------------------------------
 # Emacs
 # ----------------------------------------------------------------------------
-alias eg='emacsclient -n'    # (e)macsclient in (g)ui
-alias et='emacsclient -nw'   # (e)macsclient in (t)terminal
-alias ev='emacs -q -nw'      # (e)macs (v)anilla
+alias ecg='emacsclient -n'    # (e)macs(c)lient in (g)ui
+alias ect='emacsclient -nw'   # (e)macs(c)lient in (t)terminal
+alias ev='emacs -q -nw'       # (e)macs (v)anilla in terminal
 
 # ----------------------------------------------------------------------------
 # Elixir
