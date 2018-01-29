@@ -21,6 +21,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
     alias ea='open -a Emacs.app ${@:2}'
+    alias vscode='open -a "Visual Studio Code.app"'
 fi
 
 # ----------------------------------------------------------------------------
