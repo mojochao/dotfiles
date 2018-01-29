@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias safari='open -a "Safari"'
     alias ea='open -a Emacs.app ${@:2}'
     alias vscode='open -a "Visual Studio Code.app"'
+    alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 fi
 
 # ----------------------------------------------------------------------------
