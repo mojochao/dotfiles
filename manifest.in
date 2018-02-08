@@ -8,4 +8,10 @@
 .tmux.conf
 .tool-versions
 .lein/profiles.clj
+.zlogin
+.zlogout
+.zpreztorc
+.zprofile
+.zshenv
+.zshrc
 
