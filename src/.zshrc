@@ -43,7 +43,8 @@ command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 
 # Add virtualenvwrapper commands if exists.
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
-[ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+[ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Install aliases.
 [ -s "$HOME/.aliases" ] && source $HOME/.aliases
