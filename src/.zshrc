@@ -34,19 +34,24 @@ if [[ -x /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home`
 fi
 
-# Install asdf command if exists.  See https://github.com/asdf-vm/asdf for more info.
+# Install asdf command if installed.  See https://github.com/asdf-vm/asdf for more info.
 [ -s "$HOME/.asdf/asdf.sh" ] && source $HOME/.asdf/asdf.sh
 [ -s "$HOME/.asdf/completions/asdf.bash" ] && source $HOME/.asdf/completions/asdf.bash
 
-# Install kubectl completions if exists.
+# Install nvm command if installed.  Currently, asdf isn't working with nodejs.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
+[ -s "$NVM_DIR/bash_completion" ] && source $NVM_DIR/bash_completion
+
+# Install kubectl completions if installed.
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 
-# Add virtualenvwrapper commands if exists.
+# Add virtualenvwrapper commands if installed.
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-# Install aliases.
+# Install aliases if found int home directory.
 [ -s "$HOME/.aliases" ] && source $HOME/.aliases
 
 # Install private environment if found in home directory.
