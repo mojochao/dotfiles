@@ -45,5 +45,8 @@ command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
+# Install aliases.
+[ -s "$HOME/.aliases" ] && source $HOME/.aliases
+
 # Install private environment if found in home directory.
 [ -s "$HOME/.private" ] && source $HOME/.private
