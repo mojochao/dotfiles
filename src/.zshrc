@@ -11,3 +11,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# Add asdf command (https://github.com/asdf-vm/asdf)
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
