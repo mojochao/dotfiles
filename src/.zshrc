@@ -16,3 +16,7 @@ fi
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
 
+# Add virtualenvwrapper commands
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+source /usr/local/bin/virtualenvwrapper.sh
+
