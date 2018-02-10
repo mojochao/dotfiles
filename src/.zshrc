@@ -23,7 +23,7 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && source $NVM_DIR/bash_completion
 
-# Install kubectl completions if available..
+# Install kubectl completions if available.
 # See https://kubernetes.io/docs/reference/generated/kubectl/kubectl/ for more info.
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 
