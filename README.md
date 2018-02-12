@@ -8,11 +8,11 @@ manage their install and uninstall.
 To install dotfiles:
 
 ```
-$ ./dotfiles.py install
+$ ./dotfiles install
 ```
 
 To uninstall dotfiles:
 
 ```
-$ ./dotfiles.py uninstall
+$ ./dotfiles uninstall
 ```
