@@ -5,9 +5,9 @@ clojure 1.9.0
 haskell 8.2.2
 idris 1.2.0
 minikube 0.25.0
-kubectl 1.9.2
-golang 1.9
-kubecfg 0.6.0
+kubectl 1.9.3
+golang 1.9.4
+kubecfg 0.7.1
 postgres 10.1
 mongodb 3.5.1
 scala 2.12.4
