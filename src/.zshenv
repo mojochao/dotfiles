@@ -36,3 +36,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+
+# Install local environment if found in home directory.
+[ -s "$HOME/.localenv" ] && source $HOME/.localenv

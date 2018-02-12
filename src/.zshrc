@@ -38,5 +38,5 @@ command -v minikube > /dev/null 2>&1 && source <(minikube completion zsh)
 # Install shared aliases if found in home directory.
 [ -s "$HOME/.aliases" ] && source $HOME/.aliases
 
-# Install private environment if found in home directory.
-[ -s "$HOME/.private" ] && source $HOME/.private
+# Install local environment if found in home directory.
+[ -s "$HOME/.localrc" ] && source $HOME/.localrc
