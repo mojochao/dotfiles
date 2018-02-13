@@ -5,7 +5,6 @@
 .ideavimrc
 .spacemacs
 .tmux.conf
-.tool-versions
 .lein/profiles.clj
 .zlogin
 .zlogout
