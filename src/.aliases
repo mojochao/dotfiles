@@ -2,9 +2,10 @@
 # ----------------------------------------------------------------------------
 # I'm _really_ lazy on the comnmand line.
 # ----------------------------------------------------------------------------
-alias e=eg    # (e)edit
-alias t=tree  # (t)ree
-alias v=less  # (v)iew
+
+alias e='emacsclient -n' # (e)dit
+alias t=tree             # (t)ree
+alias v=less             # (v)iew
 
 # ----------------------------------------------------------------------------
 # Change default behavior.
@@ -28,9 +29,8 @@ fi
 # ----------------------------------------------------------------------------
 # Emacs
 # ----------------------------------------------------------------------------
-alias ecg='emacsclient -n'    # (e)macs(c)lient in (g)ui
-alias ect='emacsclient -nw'   # (e)macs(c)lient in (t)terminal
-alias ev='emacs -q -nw'       # (e)macs (v)anilla in terminal
+alias eg='emacsclient -n'    # (e)macs(c)lient in (g)ui
+alias ev='emacs -q -nw'      # (e)macs (v)anilla in terminal
 
 # ----------------------------------------------------------------------------
 # Elixir
