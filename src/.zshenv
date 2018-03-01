@@ -24,6 +24,7 @@ fi
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
 
 # Install local environment if found in home directory.
 [ -s "$HOME/.localenv" ] && source $HOME/.localenv
