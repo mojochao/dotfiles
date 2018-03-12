@@ -22,7 +22,7 @@ if [[ -x /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home`
 fi
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/.virtualenvs
 
