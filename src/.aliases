@@ -62,6 +62,11 @@ alias dockme_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
 alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
 
 # ----------------------------------------------------------------------------
+# Kubernetes
+# ----------------------------------------------------------------------------
+alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+
+# ----------------------------------------------------------------------------
 # PostgreSQL
 # ----------------------------------------------------------------------------
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
