@@ -12,12 +12,6 @@ fi
 
 # Customize to your needs...
 
-# Install asdf command if available.
-# See https://github.com/asdf-vm/asdf for more info.
-[ -s "$HOME/.asdf/asdf.sh" ] && source $HOME/.asdf/asdf.sh
-[ -s "$HOME/.asdf/completions/asdf.bash" ] && source $HOME/.asdf/completions/asdf.bash
-
-# Install kubectl completions if available.
 # See https://kubernetes.io/docs/reference/generated/kubectl/kubectl/ for more info.
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 
