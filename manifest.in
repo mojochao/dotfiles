@@ -6,10 +6,5 @@
 .spacemacs
 .tmux.conf
 .lein/profiles.clj
-.zlogin
-.zlogout
-.zpreztorc
-.zprofile
-.zshenv
 .zshrc
 

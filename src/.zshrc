@@ -1,17 +1,105 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
+export TERM=xterm-256color
+export EDITOR=vim
+export VISUAL=$EDITOR
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/agooch/.oh-my-zsh
 
-# Customize to your needs...
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="avit"
 
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Install kubectl completions if available.
 # See https://kubernetes.io/docs/reference/generated/kubectl/kubectl/ for more info.
 command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
 
@@ -21,12 +109,17 @@ command -v minikube > /dev/null 2>&1 && source <(minikube completion zsh)
 
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-# Install shared aliases if found in home directory.
-[ -s "$HOME/.aliases" ] && source $HOME/.aliases
+# Configure fzf default file finder.
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Install local environment if found in home directory.
+[ -s "$HOME/.aliases" ] && source $HOME/.aliases
+[ -s "$HOME/.localenv" ] && source $HOME/.localenv
 [ -s "$HOME/.localrc" ] && source $HOME/.localrc
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -36,8 +129,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
+# Install Google Cloud SDK.
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/agooch/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/agooch/google-cloud-sdk/path.zsh.inc'; fi
-
+GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
+if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/agooch/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/agooch/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
