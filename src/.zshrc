@@ -135,3 +135,10 @@ GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
 if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
 # The next line enables shell command completion for gcloud.
 if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
+
+# Get color support for 'less'
+export LESS="--RAW-CONTROL-CHARS"
+
+# Use colors for less, man, etc.
+[[ -f ~/.less_termcap ]] && . ~/.less_termcap
+

@@ -3,6 +3,7 @@
 .gitconfig
 .gitignore
 .ideavimrc
+.less_termcap
 .spacemacs
 .tmux.conf
 .lein/profiles.clj
