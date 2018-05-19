@@ -6,6 +6,10 @@
 alias e='emacsclient -n' # (e)dit
 alias t=tree             # (t)ree
 alias v=less             # (v)iew
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -a'
 
 # ----------------------------------------------------------------------------
 # Change default behavior.
