@@ -9,7 +9,7 @@ alias v=less             # (v)iew
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
-alias lla='ls -a'
+alias lla='ls -al'
 
 # ----------------------------------------------------------------------------
 # Change default behavior.
@@ -21,7 +21,7 @@ alias pgcli='pgcli --less-chatty'
 # macOS-specific aliases.
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == darwin* ]]; then
-    alias brewski='brew update && brew upgrade && brew cleanup; brew doctor'
+    alias brewski='brew update && brew cask upgrade && brew upgrade && brew cleanup; brew doctor'
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
