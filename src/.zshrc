@@ -1,11 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
-export TERM=xterm-256color
 export EDITOR=vim
-export VISUAL=$EDITOR
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export TERM=xterm-256color
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -45,7 +42,7 @@ ZSH_THEME="lambdork"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -66,6 +63,7 @@ ZSH_THEME="lambdork"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -75,7 +73,8 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -99,19 +98,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Install kubectl completions if available.
-# See https://kubernetes.io/docs/reference/generated/kubectl/kubectl/ for more info.
-command -v kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
-
-# Install minikube completions if available.
-# See https://github.com/kubernetes/minikube for more info.
-command -v minikube > /dev/null 2>&1 && source <(minikube completion zsh)
-
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # Configure fzf default file finder.
@@ -131,14 +121,11 @@ fi
 
 # Install Google Cloud SDK.
 # The next line updates PATH for the Google Cloud SDK.
-GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
+export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
 if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
 # The next line enables shell command completion for gcloud.
 if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
-
-# Use colors for less, man, etc.
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
-
