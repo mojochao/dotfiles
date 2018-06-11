@@ -3,6 +3,8 @@ export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR=vim
 export TERM=xterm-256color
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -70,10 +72,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
