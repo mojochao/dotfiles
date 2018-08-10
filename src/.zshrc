@@ -111,8 +111,8 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 if [[ "$OSTYPE" == darwin* ]]; then
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
-    PYTHON36_USER_DIR=~/Library/Python/3.6
-    export PATH=$EMACS_APP_BIN:$PYTHON36_USER_DIR/bin:$PATH
+    PYTHON37_USER_DIR=~/Library/Python/3.7
+    export PATH=$EMACS_APP_BIN:$PYTHON37_USER_DIR/bin:$PATH
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
