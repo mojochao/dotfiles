@@ -111,8 +111,8 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 if [[ "$OSTYPE" == darwin* ]]; then
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
-    PYTHON36_USER_DIR=~/Library/Python/3.6
-    export PATH=$EMACS_APP_BIN:$PYTHON36_USER_DIR/bin:$PATH
+    PYTHON3_USER_DIR=~/Library/Python/3.7
+    export PATH=$EMACS_APP_BIN:$PYTHON3_USER_DIR/bin:$PATH
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
@@ -126,3 +126,6 @@ if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SD
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terraform
