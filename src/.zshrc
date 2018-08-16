@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR=vim
 export TERM=xterm-256color
@@ -111,8 +111,8 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 
 if [[ "$OSTYPE" == darwin* ]]; then
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
-    PYTHON3_USER_DIR=~/Library/Python/3.7
-    export PATH=$EMACS_APP_BIN:$PYTHON3_USER_DIR/bin:$PATH
+    PYTHON37_USER_DIR=~/Library/Python/3.7
+    export PATH=$EMACS_APP_BIN:$PYTHON37_USER_DIR/bin:$PATH
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
