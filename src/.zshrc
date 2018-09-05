@@ -116,6 +116,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
+# Setup golang development
+export PATH=$PATH:~/go/bin
+
 # Install Google Cloud SDK.
 # The next line updates PATH for the Google Cloud SDK.
 export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
