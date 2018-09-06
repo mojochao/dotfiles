@@ -65,6 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  minikube
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,6 +116,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export PATH=$EMACS_APP_BIN:$PYTHON37_USER_DIR/bin:$PATH
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
+
+# Setup erlang development
+export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
 
 # Setup golang development
 export PATH=$PATH:~/go/bin
