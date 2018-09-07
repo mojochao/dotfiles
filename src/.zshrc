@@ -136,3 +136,8 @@ export LESS="--RAW-CONTROL-CHARS"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terraform
+
+# Shell function to repeat a command a number of times.
+dotimes () {
+    seq i $1 | xargs -I{} "${@:2}"
+}
