@@ -139,7 +139,7 @@ complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terrafor
 
 # Shell function to repeat a command a number of times.
 dotimes () {
-    seq i $1 | xargs -I{} "${@:2}"
+    seq 1 $1 | xargs -I{} "${@:2}"
 }
 
 export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
