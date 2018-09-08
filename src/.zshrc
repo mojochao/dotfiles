@@ -65,6 +65,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  minikube
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,6 +117,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
 fi
 
+# Setup erlang development
+export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
+
+# Setup golang development
+export PATH=$PATH:~/go/bin
+
 # Install Google Cloud SDK.
 # The next line updates PATH for the Google Cloud SDK.
 export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
@@ -126,3 +133,11 @@ if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SD
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terraform
+
+# Shell function to repeat a command a number of times.
+dotimes () {
+    seq i $1 | xargs -I{} "${@:2}"
+}

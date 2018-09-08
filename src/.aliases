@@ -4,23 +4,26 @@
 # ----------------------------------------------------------------------------
 
 alias e='emacsclient -n' # (e)dit
-alias t=tree             # (t)ree
+alias k='kubectl'
+alias m='minikube'
+alias t=tree
 alias v=less             # (v)iew
-alias l='ls'
+alias l=ls
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
+alias tf=terraform
 
 # ----------------------------------------------------------------------------
 # Change default behavior.
 # ----------------------------------------------------------------------------
 alias ag='ag --hidden'
-alias pgcli='pgcli --less-chatty'
 
 # ----------------------------------------------------------------------------
 # macOS-specific aliases.
 # ----------------------------------------------------------------------------
 if [[ "$OSTYPE" == darwin* ]]; then
+    alias o=open
     alias brewski='brew update && brew cask upgrade && brew upgrade && brew cleanup; brew doctor'
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
@@ -50,12 +53,13 @@ alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xar
 # ----------------------------------------------------------------------------
 # Convenience alias to init a new git repository with initial content.
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
+alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'
 
 # ----------------------------------------------------------------------------
 # Docker
 # ----------------------------------------------------------------------------
-alias dockme_rm_stopped='docker rm -v $(docker ps -a -q --f status=exited)'
-alias dockme_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
+alias docker_rm_stopped='docker rm -v $(docker ps -a -q --f status=exited)'
+alias docker_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
 # Sen is a cool docker tui.  See https://github.com/TomasTomecek/sen for more.
 alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
 
@@ -63,8 +67,11 @@ alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomas
 # Kubernetes
 # ----------------------------------------------------------------------------
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+alias k='kubectl'
+alias m='minikube'
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
 # ----------------------------------------------------------------------------
+alias pgcli='pgcli --less-chatty'
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
