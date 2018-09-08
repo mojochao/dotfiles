@@ -141,3 +141,5 @@ complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terrafor
 dotimes () {
     seq i $1 | xargs -I{} "${@:2}"
 }
+
+export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
