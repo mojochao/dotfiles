@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 from os import makedirs, path, symlink, unlink
 
 
-MANIFEST_FILE = 'manifest.in'
+MANIFEST_FILE = 'MANIFEST'
 SRC_DIR = path.abspath(path.join(path.dirname(__file__), 'src'))
 
 
