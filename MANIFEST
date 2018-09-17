@@ -5,6 +5,7 @@
 .ideavimrc
 .lein
 .less_termcap
+.oh-my-zsh/themes/lambdork.zsh-theme
 .spacemacs
 .tmux.conf
 .vimrc
