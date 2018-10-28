@@ -68,7 +68,9 @@ plugins=(
   docker-compose
   docker-machine
   git
+  helm
   minikube
+  terraform
   tmux
 )
 
@@ -138,9 +140,6 @@ if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SD
 export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/Cellar/terraform/0.11.8/bin/terraform terraform
-
 # Shell function to repeat a command a number of times.
 dotimes () {
     seq 1 $1 | xargs -I{} "${@:2}"
@@ -207,3 +206,7 @@ is-at-least 4.3.12 && () {
 }
 
 export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
+
+# submlime merge
+SUBLIME_MERGE_HOME="/Applications/Sublime Merge.app"
+export PATH=$PATH:$SUBLIME_MERGE_HOME/Contents/SharedSupport/bin
