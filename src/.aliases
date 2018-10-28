@@ -3,6 +3,7 @@
 # I'm _really_ lazy on the comnmand line.
 # ----------------------------------------------------------------------------
 
+alias bm=bookmark
 alias d='docker'
 alias e='emacsclient -n' # (e)dit
 alias k='kubectl'
