@@ -28,22 +28,11 @@
 [branch]
 	autosetuprebase = always
 
-# Push the current branch by default
 [push]
 	default = current
 
-# Guess what you really meant
 [help]
 	autocorrect = 1
-
-# Tell where are the diff from,
-# instead of using a and b notation
-[diff]
-	mnemonicprefix = true
-
-[difftool "p4merge"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$LOCAL\"" "\"$REMOTE\""
-	prompt = false
 
 [merge]
 	keepBackup = false
@@ -55,6 +44,25 @@
 	keepTemporaries = false
 	trustExitCode = false
 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[mergetool "sublimerge"]
+	cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
+	trustExitCode = false
+
+[diff]
+	tool = sublimerge
+	mnemonicprefix = true
+
+[difftool "sublimerge"]
+	cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
+
+[difftool "p4merge"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$LOCAL\"" "\"$REMOTE\""
+	prompt = false
+
 [init]
 	templatedir = ~/.git-templates
 
@@ -62,9 +70,7 @@
 	enabled = true
 [magit]
 	hideCampaign = true
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
