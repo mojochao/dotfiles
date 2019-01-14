@@ -69,6 +69,7 @@ plugins=(
   docker-machine
   git
   helm
+  kubectl
   minikube
   terraform
   tmux
