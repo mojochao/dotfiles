@@ -69,6 +69,7 @@ plugins=(
   docker-machine
   git
   helm
+  kubectl
   minikube
   terraform
   tmux
@@ -210,3 +211,8 @@ export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/ap
 # Make gems available in path
 GEM_BIN=~/.gem/ruby/2.5.0/bin
 export PATH=$GEM_BIN:$PATH
+
+# xdg-open without spam
+xo() {
+    xdg-open $1 &>/dev/null
+}

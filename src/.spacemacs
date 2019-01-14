@@ -47,7 +47,7 @@ This function should only modify configuration layer settings."
      asm
      auto-completion
      c-c++
-     clojure
+     (clojure :packages (not clojure-cheatsheet))
      common-lisp
      cscope
      csv
