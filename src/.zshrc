@@ -211,3 +211,8 @@ export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/ap
 # submlime merge
 SUBLIME_MERGE_HOME="/Applications/Sublime Merge.app"
 export PATH=$PATH:$SUBLIME_MERGE_HOME/Contents/SharedSupport/bin
+
+# xdg-open without spam
+xo() {
+    xdg-open $1 &>/dev/null
+}
