@@ -214,5 +214,9 @@ export PATH=$GEM_BIN:$PATH
 
 # xdg-open without spam
 xo() {
-    xdg-open $1 &>/dev/null
+    if [[ "$OSTYPE" == darwin* ]]; then
+        open $1 &>/dev/null
+    elif [[ "$OSTYPE" == linux* ]]; then
+        xdg-open $1 &>/dev/null
+    fi
 }
