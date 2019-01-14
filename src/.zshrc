@@ -207,6 +207,6 @@ is-at-least 4.3.12 && () {
 
 export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
 
-# submlime merge
-SUBLIME_MERGE_HOME="/Applications/Sublime Merge.app"
-export PATH=$PATH:$SUBLIME_MERGE_HOME/Contents/SharedSupport/bin
+# Make gems available in path
+GEM_BIN=~/.gem/ruby/2.5.0/bin
+export PATH=$GEM_BIN:$PATH
