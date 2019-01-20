@@ -6,8 +6,8 @@
 alias bm=bookmark
 alias d='docker'
 alias e='emacsclient -n' # (e)dit
-alias k='kubectl'
-alias m='minikube'
+alias kc='kubectl'
+alias mk='minikube'
 alias t=tree
 alias v=less             # (v)iew
 alias l='ls -1'
