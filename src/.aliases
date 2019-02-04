@@ -4,16 +4,20 @@
 # ----------------------------------------------------------------------------
 
 alias bm=bookmark
-alias d='docker'
 alias e='emacsclient -n' # (e)dit
-alias k='kubectl'
-alias m='minikube'
 alias t=tree
 alias v=less             # (v)iew
 alias l='ls -1'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
+
+# ----------------------------------------------------------------------------
+# Docker/Kubernetes aliases.
+# ----------------------------------------------------------------------------
+alias dr=docker
+alias kc=kubectl
+alias mk=minikube
 alias tf=terraform
 
 # ----------------------------------------------------------------------------
@@ -72,6 +76,7 @@ alias kcd='kubectl config set-context $(kubectl config current-context) --namesp
 alias k='kubectl'
 alias m='minikube'
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
+alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
