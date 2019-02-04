@@ -5,7 +5,7 @@
 
 alias bm=bookmark
 alias e='emacsclient -n' # (e)dit
-alias t=tree
+alias t=tree             # (t)ree
 alias v=less             # (v)iew
 alias l='ls -1'
 alias la='ls -a'
