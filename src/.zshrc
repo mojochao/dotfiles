@@ -71,6 +71,7 @@ plugins=(
   helm
   kubectl
   minikube
+  poetry
   terraform
   tmux
 )
@@ -108,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# Configure poetry
+export PATH=$PATH:~/.poetry/bin
 
 # Configure fzf default file finder.
 export FZF_DEFAULT_COMMAND='fd --type f'
