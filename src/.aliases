@@ -74,6 +74,11 @@ alias m='minikube'
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
 
 # ----------------------------------------------------------------------------
+# Helm
+# ----------------------------------------------------------------------------
+alias helmstomp='helm ls --all --short | xargs -Li helm delete --purge'
+
+# ----------------------------------------------------------------------------
 # PostgreSQL
 # ----------------------------------------------------------------------------
 alias pgcli='pgcli --less-chatty'
