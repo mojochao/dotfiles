@@ -6,6 +6,7 @@
 .lein
 .less_termcap
 .oh-my-zsh/themes/lambdork.zsh-theme
+.psqlrc
 .spacemacs
 .tmux.conf
 .vimrc

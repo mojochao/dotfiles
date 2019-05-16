@@ -71,6 +71,7 @@ plugins=(
   helm
   kubectl
   minikube
+  poetry
   terraform
   tmux
 )
@@ -109,6 +110,9 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 [ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
 
+# Configure poetry
+export PATH=$PATH:~/.poetry/bin
+
 # Configure fzf default file finder.
 export FZF_DEFAULT_COMMAND='fd --type f'
 
@@ -146,10 +150,12 @@ dotimes () {
     seq 1 $1 | xargs -I{} "${@:2}"
 }
 
+# https://github.com/vincentbernat/zshrc/blob/master/rc/bookmarks.zsh
+#
 # Handle bookmarks. This uses the static named directories feature of
-# zsh. Such directories are declared with `hash -d
-# name=directory`. Both prompt expansion and completion know how to
-# handle them. We populate the hash with directories.
+# zsh. Such directories are declared with `hash -d name=directory`.
+# Both prompt expansion and completion know how to handle them. We
+# populate the hash with directories.
 #
 # With autocd, you can just type `~-bookmark`. Since this can be
 # cumbersome to type, you can also type `@@` and this will be turned

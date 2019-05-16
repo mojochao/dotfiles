@@ -4,16 +4,20 @@
 # ----------------------------------------------------------------------------
 
 alias bm=bookmark
-alias d='docker'
 alias e='emacsclient -n' # (e)dit
-alias kc='kubectl'
-alias mk='minikube'
-alias t=tree
+alias t=tree             # (t)ree
 alias v=less             # (v)iew
 alias l='ls -1'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -al'
+
+# ----------------------------------------------------------------------------
+# Docker/Kubernetes aliases.
+# ----------------------------------------------------------------------------
+alias dr=docker
+alias kc=kubectl
+alias mk=minikube
 alias tf=terraform
 
 # ----------------------------------------------------------------------------
@@ -66,12 +70,18 @@ alias docker_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
 alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
 
 # ----------------------------------------------------------------------------
+# Helm
+# ----------------------------------------------------------------------------
+alias helmdelall="helm ls --all --short | xargs -L1 helm delete --purge"
+
+# ----------------------------------------------------------------------------
 # Kubernetes
 # ----------------------------------------------------------------------------
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
 alias k='kubectl'
 alias m='minikube'
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
+alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 
 # ----------------------------------------------------------------------------
 # Helm
