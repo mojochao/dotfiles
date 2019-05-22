@@ -160,6 +160,8 @@ dotimes () {
 # With autocd, you can just type `~-bookmark`. Since this can be
 # cumbersome to type, you can also type `@@` and this will be turned
 # into `~-` by ZLE.
+autoload -U is-at-least
+
 is-at-least 4.3.12 && () {
     MARKPATH=$ZSH/run/marks
 
