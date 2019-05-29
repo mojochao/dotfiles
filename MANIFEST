@@ -10,4 +10,5 @@
 .spacemacs
 .tmux.conf
 .vimrc
+.vim/colors/darcula.vim
 .zshrc

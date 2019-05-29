@@ -1,5 +1,7 @@
 :syntax on
 
+colorscheme darcula
+
 set relativenumber
 
 "esc is too far away
@@ -31,3 +33,4 @@ nnoremap <C-n> :call NumberToggle()<cr>
 
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
+
