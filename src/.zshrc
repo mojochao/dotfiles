@@ -64,6 +64,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
   docker
   docker-compose
   docker-machine
@@ -160,6 +161,8 @@ dotimes () {
 # With autocd, you can just type `~-bookmark`. Since this can be
 # cumbersome to type, you can also type `@@` and this will be turned
 # into `~-` by ZLE.
+autoload -U is-at-least
+
 is-at-least 4.3.12 && () {
     MARKPATH=$ZSH/run/marks
 
@@ -215,8 +218,12 @@ is-at-least 4.3.12 && () {
 export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
 
 # Make gems available in path
-GEM_BIN=~/.gem/ruby/2.5.0/bin
-export PATH=$GEM_BIN:$PATH
+GEM_HOME=$HOME/gems
+RUBY_HOME=/usr/local/opt/ruby
+export PATH=$GEM_HOME/bin:$RUBY_HOME/bin:$PATH
+#GEM_BIN=~/.gem/ruby/2.6.0/bin:/usr/local/lib/ruby/gems/2.6.0/bin
+#export PATH=$GEM_BIN:$PATH
+eval "$(rbenv init -)"
 
 # xdg-open without spam
 xo() {
