@@ -87,6 +87,7 @@ alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl ge
 # Helm
 # ----------------------------------------------------------------------------
 alias helmstomp='helm ls --all --short | xargs -Li helm delete --purge'
+alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | xargs kubectl delete crd'
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
