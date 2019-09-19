@@ -5,6 +5,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
 	clog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -17,7 +18,7 @@
 	# * 4be77ea  Add issue 42. 4 weeks ago by Julien
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen%ar%Creset by %C(yellow)%an%Creset' --abbrev-commit
 	# Convenient to see diff in minified files
-	dw = diff --color-words
+  dw = diff --color-words
 
 # Add colors
 [color]
@@ -44,21 +45,6 @@
 	keepTemporaries = false
 	trustExitCode = false
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-[mergetool "sublimerge"]
-	cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
-	trustExitCode = false
-
-[diff]
-	tool = sublimerge
-	mnemonicprefix = true
-
-[difftool "sublimerge"]
-	cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
-
 [difftool "p4merge"]
 	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$LOCAL\"" "\"$REMOTE\""
 	prompt = false
@@ -72,6 +58,5 @@
 [magit]
 	hideCampaign = true
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+[diff "sopsdiffer"]
+	textconv = sops -d
