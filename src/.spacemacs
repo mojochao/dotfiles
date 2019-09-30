@@ -79,6 +79,7 @@ This function should only modify configuration layer settings."
      react
      restclient
      ruby
+     rust
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
