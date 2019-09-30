@@ -59,6 +59,7 @@ alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xar
 # ----------------------------------------------------------------------------
 # Convenience alias to init a new git repository with initial content.
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
+alias gitrep=mgitstatus  # https://github.com/fboender/multi-git-status
 alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'
 
 # ----------------------------------------------------------------------------
