@@ -71,11 +71,6 @@ alias docker_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
 alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
 
 # ----------------------------------------------------------------------------
-# Helm
-# ----------------------------------------------------------------------------
-alias helmdelall="helm ls --all --short | xargs -L1 helm delete --purge"
-
-# ----------------------------------------------------------------------------
 # Kubernetes
 # ----------------------------------------------------------------------------
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
@@ -95,3 +90,9 @@ alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | xargs kubectl 
 # ----------------------------------------------------------------------------
 alias pgcli='pgcli --less-chatty'
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
+
+# ----------------------------------------------------------------------------
+# AWS
+# ----------------------------------------------------------------------------
+alias awsenv='env | grep -i aws'
+
