@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
      (markdown :variables markdown-live-preview-engine 'vmd)
      multiple-cursors
      nginx
-     org
+     (org :variables org-enable-reveal-js-support t)
      pandoc
      plantuml
      python
