@@ -78,6 +78,7 @@ alias k='kubectl'
 alias m='minikube'
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
+alias kenv='env|grep -i kube'
 
 # ----------------------------------------------------------------------------
 # Helm
