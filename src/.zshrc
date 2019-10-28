@@ -105,6 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Configure kubectl info in prompt. Ensure kube-ps is installed.
+# On mac, install with `brew install kube-ps1` command.
+# See https://github.com/jonmosco/kube-ps1 for config details.
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+export KUBE_PS1_CTX_COLOR=blue
+export KUBE_PS1_NS_COLOR=magenta
+
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
