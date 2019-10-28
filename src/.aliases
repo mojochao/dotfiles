@@ -84,7 +84,7 @@ alias kenv='env|grep -i kube'
 # Helm
 # ----------------------------------------------------------------------------
 alias helmstomp='helm ls --all --short | xargs -Li helm delete --purge'
-alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | xargs kubectl delete crd'
+alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | grep -v amazonaws | xargs kubectl delete crd'
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
@@ -95,5 +95,5 @@ alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 # ----------------------------------------------------------------------------
 # AWS
 # ----------------------------------------------------------------------------
-alias awsenv='env | grep -i aws'
+alias awsenv='env | grep -i aws | sort'
 
