@@ -111,6 +111,9 @@ source $ZSH/oh-my-zsh.sh
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 export KUBE_PS1_CTX_COLOR=blue
 export KUBE_PS1_NS_COLOR=magenta
+export KUBE_PS1_PREFIX=''
+export KUBE_PS1_SUFFIX=''
+export KUBE_PS1_SEPARATOR=''
 
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
