@@ -118,8 +118,8 @@ export KUBE_PS1_SEPARATOR=''
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-[ -s /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.7/bin/virtualenvwrapper.sh
+[ -s $HOME/Library/Python/3.7/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
 
 # Configure poetry
 export PATH=$PATH:~/.poetry/bin
@@ -254,3 +254,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # Navi
 source $(navi widget zsh)
 
+# Install integration with iTerm2 on macOS.
+if [[ "$OSTYPE" == darwin* ]]; then
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
