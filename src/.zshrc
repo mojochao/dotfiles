@@ -252,6 +252,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Navi
+if [[ "$OSTYPE" == linux* ]]; then
+    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+fi
 source $(navi widget zsh)
 
 # Install integration with iTerm2 on macOS.
