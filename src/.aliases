@@ -35,7 +35,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
     alias ea='open -a Emacs.app ${@:2}'
-    alias code='open -a "Visual Studio Code.app"'
     alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 fi
 
@@ -83,7 +82,7 @@ alias kenv='env|grep -i kube'
 # ----------------------------------------------------------------------------
 # Helm
 # ----------------------------------------------------------------------------
-alias helmstomp='helm ls --all --short | xargs -Li helm delete --purge'
+alias helmstomp='helm ls --all --short | xargs -Li helm delete'
 alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | grep -v amazonaws | xargs kubectl delete crd'
 
 # ----------------------------------------------------------------------------
