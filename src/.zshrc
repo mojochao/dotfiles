@@ -261,3 +261,7 @@ source $(navi widget zsh)
 if [[ "$OSTYPE" == darwin* ]]; then
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
+# Krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
