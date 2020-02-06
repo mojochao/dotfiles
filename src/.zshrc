@@ -261,3 +261,6 @@ source $(navi widget zsh)
 if [[ "$OSTYPE" == darwin* ]]; then
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+
+# Add krew to path.
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
