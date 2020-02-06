@@ -133,10 +133,17 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 [ -s "$HOME/.localrc" ] && source $HOME/.localrc
 
 if [[ "$OSTYPE" == darwin* ]]; then
+    # Use emacs binary from macos app.
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
+    export PATH=$EMACS_APP_BIN:$PATH
+    # Configure Python 3.7 user library path.
     PYTHON37_USER_DIR=~/Library/Python/3.7
-    export PATH=$EMACS_APP_BIN:$PYTHON37_USER_DIR/bin:$PATH
+    export PATH=$PYTHON37_USER_DIR/bin:$PATH
+    # Add iCloud directory root env var.
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
+    # Setup minikube environment.
+    export MINIKUBE_ROOT=/usr/local/Cellar/minikube/1.7.1
+    export PATH=$PATH:$MINIKUBE_ROOT/bin
 fi
 
 # Setup erlang development
