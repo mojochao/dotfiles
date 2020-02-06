@@ -60,3 +60,6 @@
 
 [diff "sopsdiffer"]
 	textconv = sops -d
+
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org
