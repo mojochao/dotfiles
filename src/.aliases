@@ -13,12 +13,16 @@ alias ll='ls -l'
 alias lla='ls -al'
 
 # ----------------------------------------------------------------------------
-# Docker/Kubernetes aliases.
+# Docker/Helm/Kubernetes/Terraform aliases.
 # ----------------------------------------------------------------------------
 alias dr=docker
 alias kc=kubectl
 alias mk=minikube
 alias tf=terraform
+alias h=helm
+alias hf=helmfile
+# kubectl get everything!
+alias kge="kubectl get cm,secret,pv,pvc,deployment,pod,svc,ingress,ingressroute,replicaset,statefulset,daemonset"
 
 # ----------------------------------------------------------------------------
 # Change default behavior.
@@ -95,4 +99,3 @@ alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 # AWS
 # ----------------------------------------------------------------------------
 alias awsenv='env | grep AWS_ | sort'
-
