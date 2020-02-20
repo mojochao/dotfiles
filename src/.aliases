@@ -1,61 +1,40 @@
 # -*- mode: sh -*-
 # ----------------------------------------------------------------------------
-# I'm _really_ lazy on the comnmand line.
+# I'm _really_ lazy on the comnmand line!
 # ----------------------------------------------------------------------------
 
 alias bm=bookmark
 alias e='emacsclient -n' # (e)dit
 alias t=tree             # (t)ree
 alias v=less             # (v)iew
-alias l='ls -1'
-alias la='ls -a1'
-alias ll='ls -l'
-alias lla='ls -al'
+alias l='ls -1'          # (l)ist
+alias la='ls -a1'        # (l)ist (a)ll
+alias ll='ls -l'         # (l)ong (l)list
+alias lla='ls -al'       # (l)ong (l)list (a)ll
 
 # ----------------------------------------------------------------------------
-# Docker/Helm/Kubernetes/Terraform aliases.
-# ----------------------------------------------------------------------------
-alias dr=docker
-alias kc=kubectl
-alias mk=minikube
-alias tf=terraform
-alias h=helm
-alias hf=helmfile
-# kubectl get everything!
-alias kge="kubectl get cm,secret,pv,pvc,deployment,pod,svc,ingress,ingressroute,replicaset,statefulset,daemonset"
-
-# ----------------------------------------------------------------------------
-# Change default behavior.
+# ag (a.k.a The Silver Searcher) configuration.
 # ----------------------------------------------------------------------------
 alias ag='ag --hidden'
 
 # ----------------------------------------------------------------------------
-# macOS-specific aliases.
+# AWS
 # ----------------------------------------------------------------------------
-if [[ "$OSTYPE" == darwin* ]]; then
-    alias o=open
-    alias brewski='brew update && brew cask upgrade && brew upgrade && brew cleanup; brew doctor'
-    alias chrome='open -a "Google Chrome"'
-    alias firefox='open -a "Firefox"'
-    alias safari='open -a "Safari"'
-    alias ea='open -a Emacs.app ${@:2}'
-    alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
-fi
+alias awsenv='env | grep ^AWS_ | sort'
+
+# ----------------------------------------------------------------------------
+# Docker
+# ----------------------------------------------------------------------------
+alias dr=docker
+alias dr_rm_stopped='docker rm -v $(docker ps -a -q --f status=exited)'
+alias dr_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
+# Sen is a cool docker tui.  See https://github.com/TomasTomecek/sen for more.
+alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
 
 # ----------------------------------------------------------------------------
 # Elixir
 # ----------------------------------------------------------------------------
 alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
-
-# ----------------------------------------------------------------------------
-# Python
-# ----------------------------------------------------------------------------
-alias pycnuke="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
-
-# ----------------------------------------------------------------------------
-# Virtualbox
-# ----------------------------------------------------------------------------
-alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
 
 # ----------------------------------------------------------------------------
 # Git
@@ -66,28 +45,20 @@ alias gitrep=mgitstatus  # https://github.com/fboender/multi-git-status
 alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'
 
 # ----------------------------------------------------------------------------
-# Docker
+# Helm and Helmfile
 # ----------------------------------------------------------------------------
-alias docker_rm_stopped='docker rm -v $(docker ps -a -q --f status=exited)'
-alias docker_rmi_dangling='docker rmi $(docker images -q --f dangling=true)'
-# Sen is a cool docker tui.  See https://github.com/TomasTomecek/sen for more.
-alias sen='docker run -v /var/run/docker.sock:/run/docker.sock -ti -e TERM tomastomecek/sen'
+alias h=helm
+alias hf=helmfile
 
 # ----------------------------------------------------------------------------
-# Kubernetes
+# Kubernetes and Minikube
 # ----------------------------------------------------------------------------
-alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
-alias k='kubectl'
-alias m='minikube'
+alias m=minikube
+alias k=kubectl
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
+alias kenv='env | grep  ^KUBE'
+alias kge="kubectl get sa,cm,secret,pv,pvc,svc,deployment,pod,replicaset,statefulset,daemonset,ingress,ingressroute"
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
-alias kenv='env|grep -i kube'
-
-# ----------------------------------------------------------------------------
-# Helm
-# ----------------------------------------------------------------------------
-alias helmstomp='helm ls --all --short | xargs -Li helm delete'
-alias crdstomp='kubectl get crd --no-headers | awk "{print $1}" | grep -v amazonaws | xargs kubectl delete crd'
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
@@ -96,6 +67,30 @@ alias pgcli='pgcli --less-chatty'
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 
 # ----------------------------------------------------------------------------
-# AWS
+# Python
 # ----------------------------------------------------------------------------
-alias awsenv='env | grep ^AWS_ | sort'
+alias pycnuke="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
+
+# ----------------------------------------------------------------------------
+# Terraform
+# ----------------------------------------------------------------------------
+alias tf=terraform
+
+# ----------------------------------------------------------------------------
+# Virtualbox
+# ----------------------------------------------------------------------------
+alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
+
+# ----------------------------------------------------------------------------
+# OS-specific aliases
+# ----------------------------------------------------------------------------
+
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias o=open
+    alias brewski='brew update && brew cask upgrade && brew upgrade && brew cleanup; brew doctor'
+    alias chrome='open -a "Google Chrome"'
+    alias firefox='open -a "Firefox"'
+    alias safari='open -a "Safari"'
+    alias ea='open -a Emacs.app ${@:2}'
+    alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+fi
