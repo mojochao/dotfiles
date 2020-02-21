@@ -57,7 +57,7 @@ alias m=minikube
 alias k=kubectl
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
 alias kenv='env | grep  ^KUBE'
-alias kge="kubectl get sa,cm,secret,pv,pvc,svc,deployment,pod,replicaset,statefulset,daemonset,ingress,ingressroute,middleware"
+alias kge="kubectl get sa,cm,secret,pv,pvc,svc,hpa,deployment,pod,replicaset,statefulset,daemonset,ingress,ingressroute,middleware"
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 
 # ----------------------------------------------------------------------------
