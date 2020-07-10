@@ -118,8 +118,8 @@ export KUBE_PS1_SEPARATOR=''
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.7/bin/virtualenvwrapper.sh
-[ -s $HOME/Library/Python/3.7/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.7/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.8/bin/virtualenvwrapper.sh
+[ -s $HOME/Library/Python/3.8/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.8/bin/virtualenvwrapper_lazy.sh
 
 # Configure poetry
 export PATH=$PATH:~/.poetry/bin
@@ -137,8 +137,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
     export PATH=$EMACS_APP_BIN:$PATH
     # Configure Python 3.7 user library path.
-    PYTHON37_USER_DIR=~/Library/Python/3.7
-    export PATH=$PYTHON37_USER_DIR/bin:$PATH
+    PYTHON_USER_DIR=~/Library/Python/3.8
+    export PATH=$PYTHON_USER_DIR/bin:$PATH
     # Add iCloud directory root env var.
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
     # Setup minikube environment.
@@ -260,11 +260,11 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# Navi
-if [[ "$OSTYPE" == linux* ]]; then
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-fi
-source $(navi widget zsh)
+# # Navi
+# if [[ "$OSTYPE" == linux* ]]; then
+#     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+# fi
+# source $(navi widget zsh)
 
 # Add PostgreSQL 11 to path.
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
