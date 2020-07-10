@@ -2,7 +2,6 @@
 # ----------------------------------------------------------------------------
 # I'm _really_ lazy on the comnmand line!
 # ----------------------------------------------------------------------------
-
 alias bm=bookmark
 alias e='emacsclient -n' # (e)dit
 alias t=tree             # (t)ree
@@ -11,6 +10,7 @@ alias l='ls -1'          # (l)ist
 alias la='ls -a1'        # (l)ist (a)ll
 alias ll='ls -l'         # (l)ong (l)list
 alias lla='ls -al'       # (l)ong (l)list (a)ll
+alias paths="echo $PATH|tr ':' '\n'"
 
 # ----------------------------------------------------------------------------
 # ag (a.k.a The Silver Searcher) configuration.
