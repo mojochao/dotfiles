@@ -136,7 +136,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # Use emacs binary from macos app.
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
     export PATH=$EMACS_APP_BIN:$PATH
-    # Configure Python 3.7 user library path.
+    # Configure Python 3 user library path.
     PYTHON_USER_DIR=~/Library/Python/3.8
     export PATH=$PYTHON_USER_DIR/bin:$PATH
     # Add iCloud directory root env var.
