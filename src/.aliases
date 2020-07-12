@@ -50,6 +50,9 @@ alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'
 # ----------------------------------------------------------------------------
 alias h=helm
 alias hf=helmfile
+alias hfd='helmfile diff'
+alias hfa='helmfile apply'
+alias hfai='helmfile -i apply'
 
 # ----------------------------------------------------------------------------
 # Kubernetes and Minikube
