@@ -2,9 +2,15 @@
 export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/go/libexec/bin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR=vim
-export TERM=xterm-256color
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# https://github.com/ohmyzsh/ohmyzsh/issues/8682
+if [[ -n "$INSIDE_EMACS" ]]; then
+   # export TERM=
+else
+  export TERM=xterm-256color
+fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
