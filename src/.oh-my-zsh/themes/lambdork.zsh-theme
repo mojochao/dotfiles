@@ -8,7 +8,7 @@ $(_user_host)${_current_dir}$(git_prompt_info) $(aws_prompt_info) $(kube_ps1)
 
 PROMPT2='%{$fg[$CARETCOLOR]%}◀%{$reset_color%} '
 
-RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
+#RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 
 local _current_dir="%{$fg_bold[blue]%}%~%{$reset_color%} "
 local _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
