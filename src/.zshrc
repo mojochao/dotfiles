@@ -240,8 +240,6 @@ is-at-least 4.3.12 && () {
     }
 }
 
-export KUBE_EDITOR="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code -w"
-
 # Make gems available in path
 GEM_HOME=$HOME/gems
 RUBY_HOME=/usr/local/opt/ruby
