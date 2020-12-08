@@ -61,10 +61,11 @@ alias hfai='helmfile -i apply'
 alias m=minikube
 alias k=kubectl
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
-alias kenv='env | grep  ^KUBE'
+alias kenv='env | grep ^KUBE'
 alias kcfg='kubectl get cm,secret'
 alias kge="kubectl get sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress"
 alias kget="kubectl sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress,ingressroute,middleware"
+alias kgprom='kubectl get alertmanagers,podmonitors,prometheuses,prometheusrules,servicemonitors,thanosrulers -n monitoring'
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 
 # ----------------------------------------------------------------------------
