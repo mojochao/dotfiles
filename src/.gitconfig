@@ -18,7 +18,9 @@
 	# * 4be77ea  Add issue 42. 4 weeks ago by Julien
 	lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen%ar%Creset by %C(yellow)%an%Creset' --abbrev-commit
 	# Convenient to see diff in minified files
-  dw = diff --color-words
+    dw = diff --color-words
+    # Display all branches and last commits on them
+    wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 
 # Add colors
 [color]
