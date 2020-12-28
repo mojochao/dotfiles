@@ -74,6 +74,7 @@ alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl ge
 # PostgreSQL
 # ----------------------------------------------------------------------------
 alias pgcli='pgcli --less-chatty'
+alias pgenv='env|grep ^PG'
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 
 # ----------------------------------------------------------------------------
