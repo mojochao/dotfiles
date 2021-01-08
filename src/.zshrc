@@ -83,6 +83,9 @@ plugins=(
   tmux
 )
 
+# Disable aws plugin display of aws profile info in RPROMPT.
+export SHOW_AWS_PROMPT=false
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
