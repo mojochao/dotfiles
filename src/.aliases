@@ -99,7 +99,7 @@ alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xar
 
 if [[ "$OSTYPE" == darwin* ]]; then
     alias o=open
-    alias brewski='brew update && brew upgrade --cask && brew upgrade && brew cleanup; brew doctor'
+    alias brewski='brew update && brew upgrade --cask --greedy && brew upgrade && brew cleanup; brew doctor'
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
