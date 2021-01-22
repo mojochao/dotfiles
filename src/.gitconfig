@@ -43,16 +43,6 @@
 	keepBackup = false
 	tool = p4merge
 
-[mergetool "p4merge"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$PWD/$BASE\"" "\"$PWD/$LOCAL\"" "\"$PWD/$REMOTE\"" "\"$PWD/$MERGED\""
-	keepBackup = false
-	keepTemporaries = false
-	trustExitCode = false
-
-[difftool "p4merge"]
-	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "\"$LOCAL\"" "\"$REMOTE\""
-	prompt = false
-
 [init]
 	templatedir = ~/.git-templates
 
