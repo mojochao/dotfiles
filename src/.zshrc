@@ -124,6 +124,9 @@ export KUBE_PS1_PREFIX=''
 export KUBE_PS1_SUFFIX=''
 export KUBE_PS1_SEPARATOR=''
 
+# Add python package --user bin paths
+export PATH=$HOME/Library/Python/3.9/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.7/bin:$PATH
+
 # Install virtualenvwrapper commands if available.
 # See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
