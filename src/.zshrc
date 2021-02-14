@@ -114,6 +114,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Configure asdf package manager.
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+# Configure brew package manager.
+if [[ "$OSTYPE" == darwin ]]; then
+    HOMEBREW_ROOT=/usr/local
+elif [[ "$OSTYPE" == linux* ]]; then
+    HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
+fi
+export PATH=$HOMEBREW_ROOT/bin:$PATH
+
 # Configure kubectl info in prompt. Ensure kube-ps is installed.
 # On mac, install with `brew install kube-ps1` command.
 # See https://github.com/jonmosco/kube-ps1 for config details.
