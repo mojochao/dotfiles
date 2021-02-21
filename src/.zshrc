@@ -294,3 +294,7 @@ export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 # Add krew to path.
 export KREW_ROOT=~/.krew
 export PATH=$PATH:$KREW_ROOT/bin
+
+# Add daprd to path.
+export PATH=$PATH:$HOME/.dapr/bin
+
