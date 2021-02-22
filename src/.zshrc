@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/go/libexec/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin::$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR=vim
 export LANG=en_US.UTF-8
@@ -114,11 +114,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Configure asdf package manager.
+# ---------------------------------------------------------
+# Configure asdf package manager
+# ---------------------------------------------------------
+
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
 
-# Configure brew package manager.
+# ---------------------------------------------------------
+# Configure brew package manager
+# ---------------------------------------------------------
+
 if [[ "$OSTYPE" == darwin ]]; then
     HOMEBREW_ROOT=/usr/local
 elif [[ "$OSTYPE" == linux* ]]; then
@@ -126,64 +132,31 @@ elif [[ "$OSTYPE" == linux* ]]; then
 fi
 export PATH=$HOMEBREW_ROOT/bin:$PATH
 
-# Configure kubectl info in prompt. Ensure kube-ps is installed.
-# On mac, install with `brew install kube-ps1` command.
-# See https://github.com/jonmosco/kube-ps1 for config details.
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-export KUBE_PS1_CTX_COLOR=blue
-export KUBE_PS1_NS_COLOR=magenta
-export KUBE_PS1_PREFIX=''
-export KUBE_PS1_SUFFIX=''
-export KUBE_PS1_SEPARATOR=''
-
-# Add python package --user bin paths
-export PATH=$HOME/Library/Python/3.9/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.7/bin:$PATH
-
-# Install virtualenvwrapper commands if available.
-# See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.8/bin/virtualenvwrapper.sh
-[ -s $HOME/Library/Python/3.8/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.8/bin/virtualenvwrapper_lazy.sh
-
-# Configure poetry
-export PATH=$PATH:~/.poetry/bin
-
-# Configure fzf default file finder.
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# Install local environment if found in home directory.
-[ -s "$HOME/.aliases" ] && source $HOME/.aliases
-[ -s "$HOME/.localenv" ] && source $HOME/.localenv
-[ -s "$HOME/.localrc" ] && source $HOME/.localrc
+# ---------------------------------------------------------
+# Configure macOS-specific things
+# ---------------------------------------------------------
 
 if [[ "$OSTYPE" == darwin* ]]; then
     # Use emacs binary from macos app.
     EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
     export PATH=$EMACS_APP_BIN:$PATH
-    # Configure Python 3 user library path.
-    PYTHON_USER_DIR=~/Library/Python/3.8
-    export PATH=$PYTHON_USER_DIR/bin:$PATH
     # Add iCloud directory root env var.
     export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
-    # Setup minikube environment.
-    export MINIKUBE_ROOT=/usr/local/Cellar/minikube/1.7.1
-    export PATH=$PATH:$MINIKUBE_ROOT/bin
     # Configure iterm2 integration.
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
-# Setup erlang development
-export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
+# ---------------------------------------------------------
+# Configure general productivity enhancers
+# ---------------------------------------------------------
 
-# Setup golang development
-export PATH=$PATH:~/go/bin
+export FZF_DEFAULT_COMMAND='fd --type f'
 
-# Install Google Cloud SDK.
-# The next line updates PATH for the Google Cloud SDK.
-export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
-if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
-# The next line enables shell command completion for gcloud.
-if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
+# # Navi
+# if [[ "$OSTYPE" == linux* ]]; then
+#     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+# fi
+# source $(navi widget zsh)
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
@@ -194,8 +167,6 @@ dotimes () {
     seq 1 $1 | xargs -I{} "${@:2}"
 }
 
-# https://github.com/vincentbernat/zshrc/blob/master/rc/bookmarks.zsh
-#
 # Handle bookmarks. This uses the static named directories feature of
 # zsh. Such directories are declared with `hash -d name=directory`.
 # Both prompt expansion and completion know how to handle them. We
@@ -204,6 +175,9 @@ dotimes () {
 # With autocd, you can just type `~-bookmark`. Since this can be
 # cumbersome to type, you can also type `@@` and this will be turned
 # into `~-` by ZLE.
+#
+# See https://github.com/vincentbernat/zshrc/blob/master/rc/bookmarks.zsh
+# for details.
 autoload -U is-at-least
 
 is-at-least 4.3.12 && () {
@@ -258,6 +232,50 @@ is-at-least 4.3.12 && () {
     }
 }
 
+# ---------------------------------------------------------
+# Erlang development
+# ---------------------------------------------------------
+
+export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
+
+# ---------------------------------------------------------
+# JavaScript development
+# ---------------------------------------------------------
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# YARN
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# ---------------------------------------------------------
+# Golang development
+# ---------------------------------------------------------
+
+export PATH=$PATH:$HOME/go/bin:/usr/local/opt/go/libexec/bin
+
+# ---------------------------------------------------------
+# Python development
+# ---------------------------------------------------------
+
+# Add python package --user bin paths
+export PATH=$HOME/Library/Python/3.9/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.7/bin:$PATH
+
+# Install virtualenvwrapper commands if available.
+# See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.8/bin/virtualenvwrapper.sh
+[ -s $HOME/Library/Python/3.8/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.8/bin/virtualenvwrapper_lazy.sh
+
+# Configure poetry
+export PATH=$PATH:~/.poetry/bin
+
+# ---------------------------------------------------------
+# Ruby development
+# ---------------------------------------------------------
+
 # Make gems available in path
 GEM_HOME=$HOME/gems
 RUBY_HOME=/usr/local/opt/ruby
@@ -275,26 +293,53 @@ xo() {
     fi
 }
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+# ---------------------------------------------------------
+# Rust development
+# ---------------------------------------------------------
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH=$PATH:$HOME/.cargo/bin
 
-# # Navi
-# if [[ "$OSTYPE" == linux* ]]; then
-#     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-# fi
-# source $(navi widget zsh)
+# ---------------------------------------------------------
+# Kubernetes tooling
+# ---------------------------------------------------------
 
-# Add PostgreSQL 11 to path.
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+# Configure kubectl info in prompt. Ensure kube-ps is installed.
+# On mac, install with `brew install kube-ps1` command.
+# See https://github.com/jonmosco/kube-ps1 for config details.
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+export KUBE_PS1_CTX_COLOR=blue
+export KUBE_PS1_NS_COLOR=magenta
+export KUBE_PS1_PREFIX=''
+export KUBE_PS1_SUFFIX=''
+export KUBE_PS1_SEPARATOR=''
 
 # Add krew to path.
 export KREW_ROOT=~/.krew
 export PATH=$PATH:$KREW_ROOT/bin
 
+# ---------------------------------------------------------
+# Dapr development
+# ---------------------------------------------------------
+
 # Add daprd to path.
 export PATH=$PATH:$HOME/.dapr/bin
+
+# ---------------------------------------------------------
+# GCP development and operations
+# ---------------------------------------------------------
+
+# Install Google Cloud SDK.
+# The next line updates PATH for the Google Cloud SDK.
+export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
+if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
+# The next line enables shell command completion for gcloud.
+if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
+
+# ---------------------------------------------------------
+# Source any existing local environment
+# ---------------------------------------------------------
+
+[ -s "$HOME/.aliases" ] && source $HOME/.aliases
+[ -s "$HOME/.localenv" ] && source $HOME/.localenv
+[ -s "$HOME/.localrc" ] && source $HOME/.localrc
 
