@@ -273,27 +273,6 @@ export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.8/bin/virtualenvwrapper.s
 export PATH=$PATH:~/.poetry/bin
 
 # ---------------------------------------------------------
-# Ruby development
-# ---------------------------------------------------------
-
-# Make gems available in path
-GEM_HOME=$HOME/gems
-RUBY_HOME=/usr/local/opt/ruby
-export PATH=$GEM_HOME/bin:$RUBY_HOME/bin:$PATH
-#GEM_BIN=~/.gem/ruby/2.6.0/bin:/usr/local/lib/ruby/gems/2.6.0/bin
-#export PATH=$GEM_BIN:$PATH
-eval "$(rbenv init -)"
-
-# xdg-open without spam
-xo() {
-    if [[ "$OSTYPE" == darwin* ]]; then
-        open $1 &>/dev/null
-    elif [[ "$OSTYPE" == linux* ]]; then
-        xdg-open $1 &>/dev/null
-    fi
-}
-
-# ---------------------------------------------------------
 # Rust development
 # ---------------------------------------------------------
 
@@ -323,17 +302,6 @@ export PATH=$PATH:$KREW_ROOT/bin
 
 # Add daprd to path.
 export PATH=$PATH:$HOME/.dapr/bin
-
-# ---------------------------------------------------------
-# GCP development and operations
-# ---------------------------------------------------------
-
-# Install Google Cloud SDK.
-# The next line updates PATH for the Google Cloud SDK.
-export GOOGLE_CLOUD_SDK_DIR=$HOME/sdk/google-cloud-sdk
-if [ -f $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/path.zsh.inc; fi
-# The next line enables shell command completion for gcloud.
-if [ -f $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc ]; then source $GOOGLE_CLOUD_SDK_DIR/completion.zsh.inc; fi
 
 # ---------------------------------------------------------
 # Source any existing local environment
