@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin::$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR=vim
 export LANG=en_US.UTF-8
@@ -18,7 +18,12 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambdork"
+# lambdork=realpath $ZSH/themes/lambdork.zsh-theme
+if [[ -f $ZSH/themes/lambdork.zsh-theme ]]; then
+    ZSH_THEME="lambdork"
+else
+    ZSH_THEME="simple"
+fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -73,18 +78,18 @@ plugins=(
   aws
   docker
   docker-compose
-  docker-machine
   git
   helm
   kubectl
   minikube
-  poetry
   terraform
   tmux
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
-export SHOW_AWS_PROMPT=false
+if [[ -f $(which aws) ]]; then
+  export SHOW_AWS_PROMPT=false
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,45 +123,46 @@ source $ZSH/oh-my-zsh.sh
 # Configure asdf package manager
 # ---------------------------------------------------------
 
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
 
 # ---------------------------------------------------------
 # Configure brew package manager
 # ---------------------------------------------------------
 
-if [[ "$OSTYPE" == darwin ]]; then
+if [ -x $(which brew) ]; then
+  if [[ "$OSTYPE" == darwin ]]; then
     HOMEBREW_ROOT=/usr/local
-elif [[ "$OSTYPE" == linux* ]]; then
+  elif [[ "$OSTYPE" == linux* ]]; then
     HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
+  fi
+  export PATH=$HOMEBREW_ROOT/bin:$PATH
 fi
-export PATH=$HOMEBREW_ROOT/bin:$PATH
+
 
 # ---------------------------------------------------------
 # Configure macOS-specific things
 # ---------------------------------------------------------
 
 if [[ "$OSTYPE" == darwin* ]]; then
-    # Use emacs binary from macos app.
-    EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
-    export PATH=$EMACS_APP_BIN:$PATH
-    # Add iCloud directory root env var.
-    export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
-    # Configure iterm2 integration.
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+  # Use emacs binary from macos app.
+  EMACS_APP_BIN=/Applications/Emacs.app/Contents/MacOS/bin
+  export PATH=$EMACS_APP_BIN:$PATH
+  # Add iCloud directory root env var.
+  export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
+  # Configure iterm2 integration.
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 # ---------------------------------------------------------
 # Configure general productivity enhancers
 # ---------------------------------------------------------
 
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# # Navi
-# if [[ "$OSTYPE" == linux* ]]; then
-#     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-# fi
-# source $(navi widget zsh)
+if [[ -f $(which fd) ]]; then
+  export FZF_DEFAULT_COMMAND='fd --type f'
+fi
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
@@ -164,17 +170,59 @@ export LESS="--RAW-CONTROL-CHARS"
 
 # Shell function to repeat a command a number of times.
 dotimes () {
-    seq 1 $1 | xargs -I{} "${@:2}"
+  seq 1 $1 | xargs -I{} "${@:2}"
 }
 
-# Handle bookmarks. This uses the static named directories feature of
-# zsh. Such directories are declared with `hash -d name=directory`.
-# Both prompt expansion and completion know how to handle them. We
-# populate the hash with directories.
+# ---------------------------------------------------------
+# Rust development
+# ---------------------------------------------------------
+
+if [[ -f $HOME/.cargo/bin ]]; then
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+# ---------------------------------------------------------
+# Kubernetes tooling
+# ---------------------------------------------------------
+
+# Configure kubectl info in prompt. Ensure kube-ps is installed.
+# On mac, install with `brew install kube-ps1` command.
+# See https://github.com/jonmosco/kube-ps1 for config details.
+if [[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
+  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+  export KUBE_PS1_CTX_COLOR=blue
+  export KUBE_PS1_NS_COLOR=magenta
+  export KUBE_PS1_PREFIX=''
+  export KUBE_PS1_SUFFIX=''
+  export KUBE_PS1_SEPARATOR=''
+fi
+
+ # Add krew to path.
+if [[ -d $HOME/.krew ]]; then
+  export KREW_ROOT=~/.krew
+  export PATH=$PATH:$KREW_ROOT/bin
+fi
+
+# ---------------------------------------------------------
+# Source any existing local environment
+# ---------------------------------------------------------
+
+[ -s "$HOME/.aliases" ] && source $HOME/.aliases
+[ -s "$HOME/.localenv" ] && source $HOME/.localenv
+[ -s "$HOME/.localrc" ] && source $HOME/.localrc
+
+# ---------------------------------------------------------
+# Manage bookmarks
+# ---------------------------------------------------------
+
+# This uses the static named directories feature of zsh.
+# Such directories are declared with `hash -d name=directory`.
+# Both prompt expansion and completion know how to handle
+# them. We populate the hash with directories.
 #
-# With autocd, you can just type `~-bookmark`. Since this can be
-# cumbersome to type, you can also type `@@` and this will be turned
-# into `~-` by ZLE.
+# With autocd, you can just type `~-bookmark`. Since this can
+# be cumbersome to type, you can also type `@@` and this will
+# be turned into `~-` by ZLE.
 #
 # See https://github.com/vincentbernat/zshrc/blob/master/rc/bookmarks.zsh
 # for details.
@@ -231,83 +279,3 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
-
-# ---------------------------------------------------------
-# Erlang development
-# ---------------------------------------------------------
-
-export MANPATH=$MANPATH:/usr/local/opt/erlang/lib/erlang/man
-
-# ---------------------------------------------------------
-# JavaScript development
-# ---------------------------------------------------------
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-# YARN
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# ---------------------------------------------------------
-# Golang development
-# ---------------------------------------------------------
-
-export PATH=$PATH:$HOME/go/bin:/usr/local/opt/go/libexec/bin
-
-# ---------------------------------------------------------
-# Python development
-# ---------------------------------------------------------
-
-# Add python package --user bin paths
-export PATH=$HOME/Library/Python/3.9/bin:$HOME/Library/Python/3.8/bin:$HOME/Library/Python/3.7/bin:$PATH
-
-# Install virtualenvwrapper commands if available.
-# See https://virtualenvwrapper.readthedocs.io/en/latest for more info.
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_SCRIPT=$HOME/Library/Python/3.8/bin/virtualenvwrapper.sh
-[ -s $HOME/Library/Python/3.8/bin/virtualenvwrapper.sh ] && source $HOME/Library/Python/3.8/bin/virtualenvwrapper_lazy.sh
-
-# Configure poetry
-export PATH=$PATH:~/.poetry/bin
-
-# ---------------------------------------------------------
-# Rust development
-# ---------------------------------------------------------
-
-export PATH=$PATH:$HOME/.cargo/bin
-
-# ---------------------------------------------------------
-# Kubernetes tooling
-# ---------------------------------------------------------
-
-# Configure kubectl info in prompt. Ensure kube-ps is installed.
-# On mac, install with `brew install kube-ps1` command.
-# See https://github.com/jonmosco/kube-ps1 for config details.
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-export KUBE_PS1_CTX_COLOR=blue
-export KUBE_PS1_NS_COLOR=magenta
-export KUBE_PS1_PREFIX=''
-export KUBE_PS1_SUFFIX=''
-export KUBE_PS1_SEPARATOR=''
-
-# Add krew to path.
-export KREW_ROOT=~/.krew
-export PATH=$PATH:$KREW_ROOT/bin
-
-# ---------------------------------------------------------
-# Dapr development
-# ---------------------------------------------------------
-
-# Add daprd to path.
-export PATH=$PATH:$HOME/.dapr/bin
-
-# ---------------------------------------------------------
-# Source any existing local environment
-# ---------------------------------------------------------
-
-[ -s "$HOME/.aliases" ] && source $HOME/.aliases
-[ -s "$HOME/.localenv" ] && source $HOME/.localenv
-[ -s "$HOME/.localrc" ] && source $HOME/.localrc
-
