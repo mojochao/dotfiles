@@ -132,7 +132,7 @@ fi
 # Configure brew package manager
 # ---------------------------------------------------------
 
-if [ -x $(which brew) ]; then
+if [[ -f $(which brew) ]]; then
   if [[ "$OSTYPE" == darwin ]]; then
     HOMEBREW_ROOT=/usr/local
   elif [[ "$OSTYPE" == linux* ]]; then
