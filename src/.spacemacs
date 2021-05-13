@@ -41,45 +41,23 @@ This function should only modify configuration layer settings."
      helm
      ;; auto-completion
      ;; better-defaults
-     ansible
-     asciidoc
-     asm
      auto-completion
-     c-c++
-     (clojure :packages (not clojure-cheatsheet))
-     common-lisp
-     cscope
-     csv
+     dap
      docker
-     elixir
-     elm
-     erlang
      emacs-lisp
-     fsharp
      git
-     gnus
-     go
-     haskell
+     (go :variables go-backend 'lsp go-tab-width 2)
      helm
      html
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
-     idris
      ipython-notebook
      javascript
-     latex
      lua
      (markdown :variables markdown-live-preview-engine 'vmd)
      multiple-cursors
-     nginx
      (org :variables org-enable-reveal-js-support t)
-     pandoc
-     plantuml
      python
-     racket
-     react
      restclient
-     ruby
-     rust
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -87,13 +65,8 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      sql
      syntax-checking
-     systemd
-     terraform
      themes-megapack
      treemacs
-     ;; version-control
-     typescript
-     vagrant
      yaml
      )
 
