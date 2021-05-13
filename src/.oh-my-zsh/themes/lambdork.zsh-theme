@@ -2,8 +2,16 @@
 # Personal tweaks to the most excellent AVIT ZSH Theme.
 # Requires https://github.com/jonmosco/kube-ps1
 
+local username_color=$white
+local username_command="%n"
+local username_output="%(!..$username_normal_color$username_command$reset)"
+
+local hostname_color=$white
+local hostname_command="%m"
+local hostname_output="$hostname_color$hostname_command$reset"
+
 PROMPT='
-$(_user_host)${_current_dir}$(git_prompt_info) $(aws_prompt_info) $(kube_ps1)
+$username_output@$hostname_output ${_current_dir}$(git_prompt_info) $(aws_prompt_info) $(kube_ps1)
 %{$fg[$CARETCOLOR]%}λ%{$resetcolor%} '
 
 PROMPT2='%{$fg[$CARETCOLOR]%}◀%{$reset_color%} '
