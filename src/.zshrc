@@ -195,7 +195,7 @@ fi
 # Golang development
 # ---------------------------------------------------------
 
-[[ -f $(which go) ]] && export PATH=$PATH:$HOME/go/bin
+[[ -d $HOME/go/bin ]] && export PATH=$PATH:$HOME/go/bin
 
 # ---------------------------------------------------------
 # Python development
