@@ -87,9 +87,7 @@ plugins=(
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
-if [[ -f $(which aws) ]]; then
-  export SHOW_AWS_PROMPT=false
-fi
+export SHOW_AWS_PROMPT=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -160,9 +158,7 @@ fi
 # Configure general productivity enhancers
 # ---------------------------------------------------------
 
-if [[ -f $(which fd) ]]; then
-  export FZF_DEFAULT_COMMAND='fd --type f'
-fi
+[[ -f $(which fd) ]] && export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
@@ -199,25 +195,29 @@ fi
 # Golang development
 # ---------------------------------------------------------
 
-if [[ -f $(which go) ]]; then
-  export PATH=$PATH:$HOME/go/bin
-fi
+[[ -f $(which go) ]] && export PATH=$PATH:$HOME/go/bin
+
+# ---------------------------------------------------------
+# Python development
+# ---------------------------------------------------------
+
+[[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
+[[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
+[[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
 
 # ---------------------------------------------------------
 # Rust development
 # ---------------------------------------------------------
 
-if [[ -d $HOME/.cargo/bin ]]; then
-  export PATH=$PATH:$HOME/.cargo/bin
-fi
+[[ -d $HOME/.cargo/bin ]] && export PATH=$PATH:$HOME/.cargo/bin
 
 # ---------------------------------------------------------
 # Source any existing local environment
 # ---------------------------------------------------------
 
-[ -s "$HOME/.aliases" ] && source $HOME/.aliases
-[ -s "$HOME/.localenv" ] && source $HOME/.localenv
-[ -s "$HOME/.localrc" ] && source $HOME/.localrc
+[[ -s "$HOME/.aliases" ]]  && source $HOME/.aliases
+[[ -s "$HOME/.localenv" ]] && source $HOME/.localenv
+[[ -s "$HOME/.localrc" ]]  && source $HOME/.localrc
 
 # ---------------------------------------------------------
 # Manage bookmarks
