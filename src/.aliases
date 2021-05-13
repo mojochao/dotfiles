@@ -106,3 +106,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias ea='open -a Emacs.app ${@:2}'
     alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
 fi
+
+# ----------------------------------------------------------------------------
+# miscellaneous aliases
+# ----------------------------------------------------------------------------
+alias box=devbox
+
