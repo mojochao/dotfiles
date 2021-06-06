@@ -38,7 +38,10 @@ def main():
     with open(MANIFEST_FILE) as infile:
         dotfiles = [i for i in infile.read().split('\n') if i != '']
 
-    results = map(globals()[args.action], dotfiles)
+    if args.action == 'install':
+        results = [install(item) for item in dotfiles]
+    else:
+        results = [uninstall(item) for item in dotfiles]
     map(print, results)
 
 
