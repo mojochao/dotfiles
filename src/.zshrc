@@ -145,7 +145,6 @@ fi
 # ---------------------------------------------------------
 
 if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
-  echo "diff-so-fancy!"
   export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
 fi
 
