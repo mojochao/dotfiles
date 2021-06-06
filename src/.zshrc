@@ -140,6 +140,14 @@ if [[ -f $(which brew) ]]; then
   export PATH=$HOMEBREW_ROOT/bin:$PATH
 fi
 
+# ---------------------------------------------------------
+# Configure diff-so-fancy
+# ---------------------------------------------------------
+
+if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
+  echo "diff-so-fancy!"
+  export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
+fi
 
 # ---------------------------------------------------------
 # Configure macOS-specific things
