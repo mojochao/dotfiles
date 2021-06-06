@@ -81,6 +81,7 @@ plugins=(
   git
   helm
   kubectl
+  kube-ps1
   minikube
   terraform
   tmux
