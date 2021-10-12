@@ -11,6 +11,7 @@ alias la='ls -a1'        # (l)ist (a)ll
 alias ll='ls -l'         # (l)ong (l)list
 alias lla='ls -al'       # (l)ong (l)list (a)ll
 alias paths="echo $PATH|tr ':' '\n'"
+alias now="date +%s"
 
 # ----------------------------------------------------------------------------
 # ag (a.k.a The Silver Searcher) configuration.
@@ -80,7 +81,7 @@ alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 # ----------------------------------------------------------------------------
 # Python
 # ----------------------------------------------------------------------------
-alias pycnuke="/usr/bin/find . -name '*py[co]' -exec /bin/rm -f {} ';';/usr/bin/find . -name '__pycache__' -exec /bin/rm -rf {} ';'"
+export PATH="$PATH:$HOME/.poetry/bin"
 
 # ----------------------------------------------------------------------------
 # Terraform
