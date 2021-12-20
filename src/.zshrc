@@ -143,11 +143,20 @@ fi
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
+# https://github.com/so-fancy/diff-so-fancy
 # ---------------------------------------------------------
 
 if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
   export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
 fi
+
+# ---------------------------------------------------------
+# Configure forgit
+# https://github.com/wfxr/forgit
+# ---------------------------------------------------------
+
+FORGIT_PLUGIN="$HOME/src/github.com/wfxr/forgit/forgit.plugin.zsh"
+[[ -s $FORGIT_PLUGIN ]]  && source $FORGIT_PLUGIN
 
 # ---------------------------------------------------------
 # Configure macOS-specific things
