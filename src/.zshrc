@@ -218,6 +218,11 @@ if [[ -d $HOME/.krew ]]; then
   export PATH=$PATH:$KREW_ROOT/bin
 fi
 
+# Add kneato utility function to dump neat object state.
+kneato () {
+  kubectl get $1 $2 -o yaml | kubectl neat
+}
+
 # ---------------------------------------------------------
 # Golang development
 # ---------------------------------------------------------
