@@ -83,6 +83,7 @@ plugins=(
   kubectl
   kube-ps1
   minikube
+  poetry
   terraform
   tmux
 )
