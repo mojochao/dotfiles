@@ -80,6 +80,7 @@ plugins=(
   docker-compose
   git
   helm
+  kafka
   kubectl
   kube-ps1
   minikube
