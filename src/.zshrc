@@ -120,6 +120,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ---------------------------------------------------------
+# Configure mcfly for ctrl-r intelligence
+# ---------------------------------------------------------
+
+if [[ -f $(which mcfly) ]]; then
+  eval "$(mcfly init zsh)"
+fi
+
+# ---------------------------------------------------------
 # Configure asdf package manager
 # ---------------------------------------------------------
 
