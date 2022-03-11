@@ -227,9 +227,20 @@ if [[ -d $HOME/.krew ]]; then
   export PATH=$PATH:$KREW_ROOT/bin
 fi
 
+if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
+  export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
+fi
+
 # Add kneato utility function to dump neat object state.
 kneato () {
   kubectl get $1 $2 -o yaml | kubectl neat
+}
+
+function kubectlgetall {
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "Resource:" $i
+    kubectl -n ${1} get --ignore-not-found ${i}
+  done
 }
 
 # ---------------------------------------------------------
@@ -328,3 +339,5 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
+
+export PATH="$HOME/.poetry/bin:$PATH"
