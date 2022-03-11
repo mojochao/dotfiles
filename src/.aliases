@@ -23,6 +23,7 @@ alias ag='ag --hidden'
 # ----------------------------------------------------------------------------
 alias awsenv='env | grep ^AWS_ | sort'
 alias awssecrets="aws secretsmanager list-secrets| jq -r '.SecretList[].Name'|sort"
+alias awswhoami="PAGER=cat aws sts get-caller-identity | jq ."
 
 # ----------------------------------------------------------------------------
 # Docker
@@ -70,6 +71,7 @@ alias kge="kubectl get sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicase
 alias kget="kubectl sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress,ingressroute,middleware"
 alias kgprom='kubectl get alertmanagers,podmonitors,prometheuses,prometheusrules,servicemonitors,thanosrulers -n monitoring'
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
+alias kdump="docker run -it --rm --volume $HOME/.kube:/.kube --volume $HOME/.kube-dump:/.kube-dump docker.io/woozymasta/kube-dump:latest"
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
@@ -100,7 +102,7 @@ alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xar
 
 if [[ "$OSTYPE" == darwin* ]]; then
     alias o=open
-    alias brewski='brew update && brew upgrade --cask --greedy && brew upgrade && brew cleanup; brew doctor'
+    alias brewski='brew update && brew upgrade && brew upgrade --cask --greedy && brew cleanup; brew doctor'
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
@@ -112,4 +114,3 @@ fi
 # miscellaneous aliases
 # ----------------------------------------------------------------------------
 alias box=devbox
-
