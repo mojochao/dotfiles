@@ -151,6 +151,15 @@ if [[ -f $(which brew) ]]; then
 fi
 
 # ---------------------------------------------------------
+# Configure dockerized
+# https://github.com/datastack-net/dockerized
+# ---------------------------------------------------------
+
+if [[ -d $HOME/.dockerized/bin ]]; then
+    export PATH=$PATH:$HOME/.dockerized/bin
+fi
+
+# ---------------------------------------------------------
 # Configure diff-so-fancy
 # https://github.com/so-fancy/diff-so-fancy
 # ---------------------------------------------------------
