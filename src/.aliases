@@ -46,6 +46,7 @@ alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
 # Git
 # ----------------------------------------------------------------------------
 # Convenience alias to init a new git repository with initial content.
+alias gdunk='git diff | dunk'
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
 alias gitrep=mgitstatus  # https://github.com/fboender/multi-git-status
 alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'

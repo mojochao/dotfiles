@@ -23,6 +23,7 @@
 	wip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
 	# Compare two branches for differences in commits between them.
 	cmp = log --left-right --graph --cherry-pick --oneline
+	dunk = !git diff | dunk
 
 # Add colors
 [color]
