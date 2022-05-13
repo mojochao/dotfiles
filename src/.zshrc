@@ -80,7 +80,7 @@ plugins=(
   docker-compose
   git
   helm
-  kafka
+#  kafka
   kubectl
   kube-ps1
   minikube
@@ -124,7 +124,9 @@ source $ZSH/oh-my-zsh.sh
 # Configure mcfly for ctrl-r intelligence
 # ---------------------------------------------------------
 
-if [[ -f $(which mcfly) ]]; then
+
+which mcfly >> /dev/null 2>&1
+if [[ $? -eq 0 ]]; then
   eval "$(mcfly init zsh)"
 fi
 
@@ -141,32 +143,21 @@ fi
 # Configure brew package manager
 # ---------------------------------------------------------
 
-if [[ -f $(which brew) ]]; then
-  if [[ "$OSTYPE" == darwin ]]; then
-    HOMEBREW_ROOT=/usr/local
-  elif [[ "$OSTYPE" == linux* ]]; then
-    HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
-  fi
-  export PATH=$HOMEBREW_ROOT/bin:$PATH
-fi
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 # ---------------------------------------------------------
 # Configure dockerized
 # https://github.com/datastack-net/dockerized
 # ---------------------------------------------------------
 
-if [[ -d $HOME/.dockerized/bin ]]; then
-    export PATH=$PATH:$HOME/.dockerized/bin
-fi
+[[ -d $HOME/.dockerized/bin ]] && export PATH=$PATH:$HOME/.dockerized/bin
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
 # https://github.com/so-fancy/diff-so-fancy
 # ---------------------------------------------------------
 
-if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
-  export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
-fi
+[[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]] && export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
 
 # ---------------------------------------------------------
 # Configure forgit
@@ -194,7 +185,10 @@ fi
 # Configure general productivity enhancers
 # ---------------------------------------------------------
 
-[[ -f $(which fd) ]] && export FZF_DEFAULT_COMMAND='fd --type f'
+which fd >> /dev/null 2>&1
+if [[ $? -eq 0 ]]; then
+  export FZF_DEFAULT_COMMAND='fd --type f'
+fi
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
