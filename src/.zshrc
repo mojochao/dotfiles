@@ -262,10 +262,6 @@ function kubectlgetall {
 [[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
 [[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
 
-POETRY_HOME=$HOME/.poetry
-PY310_HOME=$HOME/.asdf/installs/python/3.10.4
-export PATH=$PATH:$$POETRY_HOME/bin:$PY310_HOME/bin
-
 # ---------------------------------------------------------
 # Rust development
 # ---------------------------------------------------------
