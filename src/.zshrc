@@ -79,16 +79,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
-  docker
-  docker-compose
-  git
-  helm
-#  kafka
-  kubectl
   kube-ps1
-  minikube
-  terraform
-  tmux
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
