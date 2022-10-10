@@ -91,6 +91,7 @@ export PATH="$PATH:$HOME/.poetry/bin"
 # ----------------------------------------------------------------------------
 alias tf=terraform
 alias tfsls='terraform state list | sort'
+alias tfclean='rm -rf .terraform .terraform.lock.hcl terraform.tfstate*'
 
 # ----------------------------------------------------------------------------
 # Virtualbox
