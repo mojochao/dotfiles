@@ -117,7 +117,6 @@ source $ZSH/oh-my-zsh.sh
 # Configure mcfly for ctrl-r intelligence
 # ---------------------------------------------------------
 
-
 which mcfly >> /dev/null 2>&1
 if [[ $? -eq 0 ]]; then
   eval "$(mcfly init zsh)"
