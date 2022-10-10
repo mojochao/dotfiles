@@ -7,6 +7,9 @@
 	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
+[push]
+	autoSetupRemote = true
+
 [alias]
 	clog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	log = log --color
@@ -46,6 +49,7 @@
 
 [init]
 	templatedir = ~/.git-templates
+	defaultBranch = main
 
 [rerere]
 	enabled = true
