@@ -79,7 +79,9 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
+  helm
   kube-ps1
+  kubectl
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
