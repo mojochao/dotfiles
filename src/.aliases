@@ -12,6 +12,7 @@ alias ll='ls -l'         # (l)ong (l)list
 alias lla='ls -al'       # (l)ong (l)list (a)ll
 alias paths="echo $PATH|tr ':' '\n'"
 alias now="date +%s"
+alias dea='direnv allow'
 
 # ----------------------------------------------------------------------------
 # ag (a.k.a The Silver Searcher) configuration.
@@ -45,6 +46,7 @@ alias remix='mix ecto.drop && mix ecto.create && mix ecto.migrate'
 # ----------------------------------------------------------------------------
 # Git
 # ----------------------------------------------------------------------------
+alias g=git
 # Convenience alias to init a new git repository with initial content.
 alias gdunk='git diff | dunk'
 alias gitiac='git init && git add . && git commit -m "Initial commit."'
@@ -74,7 +76,7 @@ alias kgprom='kubectl get alertmanagers,podmonitors,prometheuses,prometheusrules
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 alias kdump="docker run -it --rm --volume $HOME/.kube:/.kube --volume $HOME/.kube-dump:/.kube-dump docker.io/woozymasta/kube-dump:latest"
 
-command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"
+#command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"
 
 # ----------------------------------------------------------------------------
 # PostgreSQL
