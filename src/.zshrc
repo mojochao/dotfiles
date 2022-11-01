@@ -79,9 +79,14 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
+  docker
+  git
   helm
-  kube-ps1
   kubectl
+  kube-ps1
+  minikube
+  terraform
+  tmux
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
@@ -119,8 +124,7 @@ source $ZSH/oh-my-zsh.sh
 # Configure mcfly for ctrl-r intelligence
 # ---------------------------------------------------------
 
-which mcfly >> /dev/null 2>&1
-if [[ $? -eq 0 ]]; then
+if [[ -f $(which mcfly) ]]; then
   eval "$(mcfly init zsh)"
 fi
 
@@ -137,21 +141,23 @@ fi
 # Configure brew package manager
 # ---------------------------------------------------------
 
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-
-# ---------------------------------------------------------
-# Configure dockerized
-# https://github.com/datastack-net/dockerized
-# ---------------------------------------------------------
-
-[[ -d $HOME/.dockerized/bin ]] && export PATH=$PATH:$HOME/.dockerized/bin
+if [[ -f $(which brew) ]]; then
+  if [[ "$OSTYPE" == darwin ]]; then
+    HOMEBREW_ROOT=/usr/local
+  elif [[ "$OSTYPE" == linux* ]]; then
+    HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
+  fi
+  export PATH=$HOMEBREW_ROOT/bin:$PATH
+fi
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
 # https://github.com/so-fancy/diff-so-fancy
 # ---------------------------------------------------------
 
-[[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]] && export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
+if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
+  export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
+fi
 
 # ---------------------------------------------------------
 # Configure forgit
@@ -179,10 +185,7 @@ fi
 # Configure general productivity enhancers
 # ---------------------------------------------------------
 
-which fd >> /dev/null 2>&1
-if [[ $? -eq 0 ]]; then
-  export FZF_DEFAULT_COMMAND='fd --type f'
-fi
+[[ -f $(which fd) ]] && export FZF_DEFAULT_COMMAND='fd --type f'
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
