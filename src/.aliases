@@ -57,6 +57,7 @@ alias magit='emacsclient -nw -e "(progn (magit-status) (delete-other-windows))"'
 # Helm and Helmfile
 # ----------------------------------------------------------------------------
 alias h=helm
+alias hclean='helm ls -a --all-namespaces | awk '\''NR > 1 { print  "-n "$2, $1}'\'' | xargs -L1 helm delete'
 alias hf=helmfile
 alias hfd='helmfile diff'
 alias hfa='helmfile apply'
