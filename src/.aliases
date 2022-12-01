@@ -62,6 +62,7 @@ alias hf=helmfile
 alias hfd='helmfile diff'
 alias hfa='helmfile apply'
 alias hfai='helmfile -i apply'
+alias hla='helm ls -a'
 
 # ----------------------------------------------------------------------------
 # Kubernetes and Minikube
