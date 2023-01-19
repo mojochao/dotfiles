@@ -179,13 +179,20 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
   # Configure iterm2 integration.
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+  # Add local rancher-desktop binaries to PATH
+  export PATH=$PATH:~/.rd/bin
 fi
 
 # ---------------------------------------------------------
 # Configure general productivity enhancers
 # ---------------------------------------------------------
 
+# https://github.com/sharkdp/fd
 [[ -f $(which fd) ]] && export FZF_DEFAULT_COMMAND='fd --type f'
+
+# https://github.com/nvbn/thefuck
+[[ -f $(which fuck) ]] && eval $(thefuck --alias)
 
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
@@ -256,6 +263,7 @@ function kubectlgetall {
 [[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
 [[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
 [[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
+[[ -d $HOME/.asdf/installs/python/3.10.5/bin ]] && export PATH=$PATH:$HOME/.asdf/installs/python/3.10.5/bin
 
 # ---------------------------------------------------------
 # Rust development
