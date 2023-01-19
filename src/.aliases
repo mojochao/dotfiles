@@ -76,6 +76,7 @@ alias kge="kubectl get sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicase
 alias kget="kubectl sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress,ingressroute,middleware"
 alias kgn=kneato
 alias kgprom='kubectl get alertmanagers,podmonitors,prometheuses,prometheusrules,servicemonitors,thanosrulers -n monitoring'
+alias kping='kubectl cluster-info'
 alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name'
 alias kdump="docker run -it --rm --volume $HOME/.kube:/.kube --volume $HOME/.kube-dump:/.kube-dump docker.io/woozymasta/kube-dump:latest"
 alias kdr='kubectl --dry-run=client -o yaml'
