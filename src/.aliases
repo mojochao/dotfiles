@@ -27,6 +27,11 @@ alias awssecrets="aws secretsmanager list-secrets| jq -r '.SecretList[].Name'|so
 alias awswhoami="PAGER=cat aws sts get-caller-identity | jq ."
 
 # ----------------------------------------------------------------------------
+# Secrets scanning
+# ----------------------------------------------------------------------------
+alias noseyparker='docker run -v "$PWD":/opt/ ghcr.io/praetorian-inc/noseyparker:latest'
+
+# ----------------------------------------------------------------------------
 # Docker
 # ----------------------------------------------------------------------------
 alias dr=docker
