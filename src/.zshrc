@@ -84,7 +84,6 @@ plugins=(
   helm
   kubectl
   kube-ps1
-  minikube
   terraform
   tmux
 )
@@ -237,6 +236,13 @@ fi
 if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
+
+kimages () {
+    kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}" |\
+	tr -s '[[:space:]]' '\n' |\
+	sort |\
+	uniq -c
+}
 
 # Add kneato utility function to dump neat object state.
 kneato () {
