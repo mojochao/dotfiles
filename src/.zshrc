@@ -1,6 +1,19 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
+is_bin_in_path () {
+  if [[ -n $ZSH_VERSION ]]; then
+    builtin whence -p "$1" &> /dev/null
+  else  # bash:
+    builtin type -P "$1" &> /dev/null
+  fi
+  [[ $? -ne 0 ]] && return 1
+  if [[ $# -gt 1 ]]; then
+    shift  # We've just checked the first one
+    is_bin_in_path "$@"
+  fi
+}
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
@@ -123,9 +136,7 @@ source $ZSH/oh-my-zsh.sh
 # Configure mcfly for ctrl-r intelligence
 # ---------------------------------------------------------
 
-if [[ -f $(which mcfly) ]]; then
-  eval "$(mcfly init zsh)"
-fi
+is_bin_in_path mcly && eval "$(mcfly init zsh)"
 
 # ---------------------------------------------------------
 # Configure asdf package manager
@@ -140,14 +151,12 @@ fi
 # Configure brew package manager
 # ---------------------------------------------------------
 
-if [[ -f $(which brew) ]]; then
-  if [[ "$OSTYPE" == darwin ]]; then
+if [[ "$OSTYPE" == darwin ]]; then
     HOMEBREW_ROOT=/usr/local
-  elif [[ "$OSTYPE" == linux* ]]; then
+elif [[ "$OSTYPE" == linux* ]]; then
     HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
-  fi
-  export PATH=$HOMEBREW_ROOT/bin:$PATH
 fi
+export PATH=$HOMEBREW_ROOT/bin:$PATH
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
