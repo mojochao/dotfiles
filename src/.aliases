@@ -12,6 +12,7 @@ alias ll='ls -l'         # (l)ong (l)list
 alias lla='ls -al'       # (l)ong (l)list (a)ll
 alias paths="echo $PATH|tr ':' '\n'"
 alias now="date +%s"
+alias nowiso="date -u +'%Y-%m-%dT%H:%M:%SZ'"
 alias dea='direnv allow'
 
 # ----------------------------------------------------------------------------
