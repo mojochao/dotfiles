@@ -1,6 +1,5 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 is_bin_in_path () {
   if [[ -n $ZSH_VERSION ]]; then
     builtin whence -p "$1" &> /dev/null
@@ -136,7 +135,7 @@ source $ZSH/oh-my-zsh.sh
 # Configure mcfly for ctrl-r intelligence
 # ---------------------------------------------------------
 
-is_bin_in_path mcly && eval "$(mcfly init zsh)"
+#is_bin_in_path mcfly && eval "$(mcfly init zsh)"
 
 # ---------------------------------------------------------
 # Configure asdf package manager
@@ -187,9 +186,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
   # Configure iterm2 integration.
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-  # Add local rancher-desktop binaries to PATH
-  export PATH=$PATH:~/.rd/bin
 fi
 
 # ---------------------------------------------------------
@@ -219,6 +215,12 @@ if [[ -d "$HOMEBREW_ROOT/Cellar/kafka/2.8.0" ]]; then
   export KAFKA_HOME=/usr/local/Cellar/kafka/2.8.0
   export PATH=$PATH:$KAFKA_HOME/bin
 fi
+
+# ---------------------------------------------------------
+# Docker tooling
+# ---------------------------------------------------------
+
+[[ -d $HOME/.docker/bin ]] && export PATH=$PATH:$HOME/.docker/bin
 
 # ---------------------------------------------------------
 # Kubernetes tooling
