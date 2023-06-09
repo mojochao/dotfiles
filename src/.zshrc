@@ -167,6 +167,15 @@ if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
 fi
 
 # ---------------------------------------------------------
+# Configure emacspro wrapper for named profiles containing
+# emacs init directories
+# https://github.com/mojochao/emacspro
+# ---------------------------------------------------------
+
+EMACSPRO_DIR=$HOME/src/github.com/mojochao/emacspro
+[[ -d $EMACSPRO_DIR/bin ]] && export PATH=$PATH:$EMACSPRO_DIR/bin
+
+# ---------------------------------------------------------
 # Configure forgit
 # https://github.com/wfxr/forgit
 # ---------------------------------------------------------
