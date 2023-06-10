@@ -4,6 +4,7 @@
 # ----------------------------------------------------------------------------
 alias bm=bookmark
 alias e='emacsclient -n' # (e)dit
+alias ep=emacspro
 alias t=tree             # (t)ree
 alias v=less             # (v)iew
 alias l='ls -1'          # (l)ist
