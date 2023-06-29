@@ -25,6 +25,7 @@ alias ag='ag --hidden'
 # AWS
 # ----------------------------------------------------------------------------
 alias awsenv='env | grep ^AWS_ | sort'
+alias awsprofiles='grep profile ~/.aws/config'
 alias awssecrets="aws secretsmanager list-secrets| jq -r '.SecretList[].Name'|sort"
 alias awswhoami="PAGER=cat aws sts get-caller-identity | jq ."
 
