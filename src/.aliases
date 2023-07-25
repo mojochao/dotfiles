@@ -80,6 +80,7 @@ alias k=kubectl
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
 alias kenv='env | grep ^KUBE'
 alias kcfg='kubectl get cm,secret'
+alias kgapp="kubectl get ing,svc,cm,secret,deploy,daemonset,statefulset,rs,pod,hpa,pdb,pvc"
 alias kge="kubectl get sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress,role,rolebinding"
 alias kget="kubectl sa,cm,secret,pvc,hpa,cronjob,job,svc,deployment,replicaset,statefulset,daemonset,pod,ingress,ingressroute,middleware"
 alias kgn=kneato
