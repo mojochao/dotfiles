@@ -1,5 +1,7 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+# Define a utility function to test if some executable file is in PATH.
 is_bin_in_path () {
   if [[ -n $ZSH_VERSION ]]; then
     builtin whence -p "$1" &> /dev/null
@@ -286,10 +288,10 @@ function kubectlgetall {
 # Python development
 # ---------------------------------------------------------
 
-[[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
-[[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
-[[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
 [[ -d $HOME/.asdf/installs/python/3.10.5/bin ]] && export PATH=$PATH:$HOME/.asdf/installs/python/3.10.5/bin
+[[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
+[[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
+[[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
 
 # ---------------------------------------------------------
 # Rust development
