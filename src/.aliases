@@ -81,6 +81,7 @@ alias hla='helm ls -a'
 # Kubernetes and Minikube
 # ----------------------------------------------------------------------------
 alias m=minikube
+alias kubectl=kubecolor
 alias k=kubectl
 alias kbb='kubectl run -it --rm --restart=Never busybox --image=busybox sh'
 alias kenv='env | grep ^KUBE'
