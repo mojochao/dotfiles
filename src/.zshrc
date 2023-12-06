@@ -169,6 +169,13 @@ if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
 fi
 
 # ---------------------------------------------------------
+# Configure doomemacs binaries
+# https://github.com/doomemacs/doomemacs
+# ---------------------------------------------------------
+DOOMEMACS_DIR=$HOME/src/github.com/doomemacs/doomemacs
+export PATH=$PATH:$DOOMEMACS_DIR/bin
+
+# ---------------------------------------------------------
 # Configure emacspro wrapper for named profiles containing
 # emacs init directories
 # https://github.com/mojochao/emacspro
