@@ -289,7 +289,7 @@ function kubectlgetall {
 # Golang development
 # ---------------------------------------------------------
 
-[[ -d $HOME/go/bin ]] && export PATH=$PATH:$HOME/go/bin
+export PATH=$HOME/go/bin:$PATH
 
 # ---------------------------------------------------------
 # Python development
