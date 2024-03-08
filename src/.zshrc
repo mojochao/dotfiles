@@ -99,7 +99,6 @@ plugins=(
   kubectl
   kube-ps1
   terraform
-  tmux
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
