@@ -152,12 +152,12 @@ fi
 # Configure brew package manager
 # ---------------------------------------------------------
 
-if [[ "$OSTYPE" == darwin ]]; then
-    HOMEBREW_ROOT=/usr/local
+if [[ "$OSTYPE" == darwin* ]]; then
+    HOMEBREW_ROOT=/opt/homebrew
 elif [[ "$OSTYPE" == linux* ]]; then
     HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
 fi
-export PATH=$HOMEBREW_ROOT/bin:$PATH
+export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
