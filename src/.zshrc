@@ -265,6 +265,7 @@ if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
 
+# Add kimages utility function to list all images in all pods.
 kimages () {
     kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}" |\
 	tr -s '[[:space:]]' '\n' |\
@@ -277,7 +278,8 @@ kneato () {
   kubectl get $1 $2 -o yaml | kubectl neat
 }
 
-function kubectlgetall {
+# Add kgetall utility function to dump all resources in a namespace.
+function kgetall {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
     kubectl -n ${1} get --ignore-not-found ${i}
