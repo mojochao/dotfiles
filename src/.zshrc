@@ -139,15 +139,6 @@ source $ZSH/oh-my-zsh.sh
 #is_bin_in_path mcfly && eval "$(mcfly init zsh)"
 
 # ---------------------------------------------------------
-# Configure asdf package manager
-# ---------------------------------------------------------
-
-if [[ -f $HOME/.asdf/asdf.sh ]]; then
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-fi
-
-# ---------------------------------------------------------
 # Configure brew package manager
 # ---------------------------------------------------------
 
@@ -157,6 +148,15 @@ elif [[ "$OSTYPE" == linux* ]]; then
     HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
 fi
 export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
+
+# ---------------------------------------------------------
+# Configure asdf package manager
+# ---------------------------------------------------------
+
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+fi
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
