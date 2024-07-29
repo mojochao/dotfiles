@@ -99,6 +99,9 @@ plugins=(
   kubectl
   kube-ps1
   terraform
+  zsh-autosuggestions
+  zsh-history-substring-search
+  zsh-syntax-highlighting
 )
 
 # Disable aws plugin display of aws profile info in RPROMPT.
