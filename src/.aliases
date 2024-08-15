@@ -1,6 +1,6 @@
 # -*- mode: sh -*-
 # ----------------------------------------------------------------------------
-# I'm _really_ lazy on the comnmand line!
+# I'm _really_ lazy on the command line!
 # ----------------------------------------------------------------------------
 alias bm=bookmark
 alias e='emacsclient -n' # (e)dit

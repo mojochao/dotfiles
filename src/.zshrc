@@ -159,7 +159,14 @@ export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
 if [[ -f $HOME/.asdf/asdf.sh ]]; then
   source $HOME/.asdf/asdf.sh
   source $HOME/.asdf/completions/asdf.bash
+  export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
 fi
+
+# ---------------------------------------------------------
+# Configure zoxide (https://github.com/ajeetdsouza/zoxide)
+# ---------------------------------------------------------
+
+eval "$(zoxide init zsh)"
 
 # ---------------------------------------------------------
 # Configure diff-so-fancy
