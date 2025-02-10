@@ -32,15 +32,15 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# lambdork=realpath $ZSH/themes/lambdork.zsh-theme
-if [[ -f $ZSH/themes/lambdork.zsh-theme ]]; then
-    ZSH_THEME="lambdork"
-else
-    ZSH_THEME="simple"
-fi
+# # Set name of the theme to load. Optionally, if you set this to "random"
+# # it'll load a random theme each time that oh-my-zsh is loaded.
+# # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# # lambdork=realpath $ZSH/themes/lambdork.zsh-theme
+# if [[ -f $ZSH/themes/lambdork.zsh-theme ]]; then
+#     ZSH_THEME="lambdork"
+# else
+#     ZSH_THEME="simple"
+# fi
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -97,15 +97,15 @@ plugins=(
   git
   helm
   kubectl
-  kube-ps1
+#  kube-ps1
   terraform
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
 )
 
-# Disable aws plugin display of aws profile info in RPROMPT.
-export SHOW_AWS_PROMPT=false
+# # Disable aws plugin display of aws profile info in RPROMPT.
+# export SHOW_AWS_PROMPT=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,10 +136,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ---------------------------------------------------------
-# Configure mcfly for ctrl-r intelligence
+# Configure asdf package manager
 # ---------------------------------------------------------
 
-#is_bin_in_path mcfly && eval "$(mcfly init zsh)"
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+  export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
+fi
 
 # ---------------------------------------------------------
 # Configure brew package manager
@@ -153,14 +157,16 @@ fi
 export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
 
 # ---------------------------------------------------------
-# Configure asdf package manager
+# Configure direnv (https://direnv.net/)
 # ---------------------------------------------------------
 
-if [[ -f $HOME/.asdf/asdf.sh ]]; then
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-  export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
-fi
+eval "$(direnv hook zsh)"
+
+# ---------------------------------------------------------
+# Configure starship (https://starship.rs/)
+# ---------------------------------------------------------
+
+eval "$(starship init zsh)"
 
 # ---------------------------------------------------------
 # Configure zoxide (https://github.com/ajeetdsouza/zoxide)
@@ -176,22 +182,6 @@ eval "$(zoxide init zsh)"
 if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
   export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
 fi
-
-# ---------------------------------------------------------
-# Configure doomemacs binaries
-# https://github.com/doomemacs/doomemacs
-# ---------------------------------------------------------
-DOOMEMACS_DIR=$HOME/src/github.com/doomemacs/doomemacs
-export PATH=$PATH:$DOOMEMACS_DIR/bin
-
-# ---------------------------------------------------------
-# Configure emacspro wrapper for named profiles containing
-# emacs init directories
-# https://github.com/mojochao/emacspro
-# ---------------------------------------------------------
-
-EMACSPRO_DIR=$HOME/src/github.com/mojochao/emacspro
-[[ -d $EMACSPRO_DIR/bin ]] && export PATH=$PATH:$EMACSPRO_DIR/bin
 
 # ---------------------------------------------------------
 # Configure forgit
@@ -222,9 +212,6 @@ fi
 # https://github.com/sharkdp/fd
 [[ -f $(which fd) ]] && export FZF_DEFAULT_COMMAND='fd --type f'
 
-# https://github.com/nvbn/thefuck
-[[ -f $(which fuck) ]] && eval $(thefuck --alias)
-
 # Get color support for 'less'
 export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
@@ -233,15 +220,6 @@ export LESS="--RAW-CONTROL-CHARS"
 dotimes () {
   seq 1 $1 | xargs -I{} "${@:2}"
 }
-
-# ---------------------------------------------------------
-# Kafka tooling
-# ---------------------------------------------------------
-
-if [[ -d "$HOMEBREW_ROOT/Cellar/kafka/2.8.0" ]]; then
-  export KAFKA_HOME=/usr/local/Cellar/kafka/2.8.0
-  export PATH=$PATH:$KAFKA_HOME/bin
-fi
 
 # ---------------------------------------------------------
 # Docker tooling
@@ -393,9 +371,6 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
-
-# direnv
-eval "$(direnv hook zsh)"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
