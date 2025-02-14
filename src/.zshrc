@@ -253,6 +253,9 @@ if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
 
+# https://github.com/danielfoehrKn/kubeswitch
+source <(switcher init zsh)
+
 # Add kimages utility function to list all images in all pods.
 kimages () {
     kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}" |\
