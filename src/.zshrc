@@ -99,6 +99,7 @@ plugins=(
   kubectl
 #  kube-ps1
   terraform
+  zsh-autopair
   zsh-autosuggestions
   zsh-history-substring-search
   zsh-syntax-highlighting
@@ -297,6 +298,12 @@ export PATH=$HOME/go/bin:$PATH
 # ---------------------------------------------------------
 
 [[ -d $HOME/.cargo/bin ]] && export PATH=$PATH:$HOME/.cargo/bin
+
+# ---------------------------------------------------------
+# Codeium
+# ---------------------------------------------------------
+
+export PATH="/Users/agooch/.codeium/windsurf/bin:$PATH"
 
 # ---------------------------------------------------------
 # Source any existing local environment
