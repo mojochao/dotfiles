@@ -97,7 +97,7 @@ alias ktypes='kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl ge
 alias kdump="docker run -it --rm --volume $HOME/.kube:/.kube --volume $HOME/.kube-dump:/.kube-dump docker.io/woozymasta/kube-dump:latest"
 alias kdr='kubectl --dry-run=client -o yaml'
 alias vk='viddy kubectl'
-
+alias mf=manifestus
 #command -v kubecolor >/dev/null 2>&1 && alias kubectl="kubecolor"
 
 # ----------------------------------------------------------------------------
