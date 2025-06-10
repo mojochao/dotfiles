@@ -1,3 +1,7 @@
+format = """$all$aws$kubernetes
+$character
+"""
+
 [character]
 success_symbol = "[λ](bold green)"
 error_symbol = "[x](bold red)"
@@ -102,6 +106,9 @@ symbol = "kt "
 
 [kubernetes]
 disabled = false
+symbol = "⎈"
+style = 'bright-green'
+format = 'on [$context( \($namespace\))]($style) '
 
 [lua]
 symbol = "lua "
