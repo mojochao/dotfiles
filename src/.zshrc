@@ -228,24 +228,6 @@ dotimes () {
 # Kubernetes tooling
 # ---------------------------------------------------------
 
-# Configure kubectl info in prompt. Ensure kube-ps is installed.
-# On mac, install with `brew install kube-ps1` command.
-# See https://github.com/jonmosco/kube-ps1 for config details.
-if [[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
-  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-  export KUBE_PS1_CTX_COLOR=blue
-  export KUBE_PS1_NS_COLOR=magenta
-  export KUBE_PS1_PREFIX=''
-  export KUBE_PS1_SUFFIX=''
-  export KUBE_PS1_SEPARATOR=''
-fi
-
- # Add krew to path.
-if [[ -d $HOME/.krew ]]; then
-  export KREW_ROOT=~/.krew
-  export PATH=$PATH:$KREW_ROOT/bin
-fi
-
 if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
