@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # Define a utility function to test if some executable file is in PATH.
 is_bin_in_path () {
   if [[ -n $ZSH_VERSION ]]; then
@@ -97,7 +94,6 @@ plugins=(
   git
   helm
   kubectl
-#  kube-ps1
   terraform
   zsh-autopair
   zsh-autosuggestions
@@ -137,16 +133,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ---------------------------------------------------------
-# Configure asdf package manager
-# ---------------------------------------------------------
-
-if [[ -f $HOME/.asdf/asdf.sh ]]; then
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-  export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
-fi
-
-# ---------------------------------------------------------
 # Configure brew package manager
 # ---------------------------------------------------------
 
@@ -156,6 +142,16 @@ elif [[ "$OSTYPE" == linux* ]]; then
     HOMEBREW_ROOT=/home/linuxbrew/.linuxbrew
 fi
 export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
+
+# ---------------------------------------------------------
+# Configure asdf package manager
+# ---------------------------------------------------------
+
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+  export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
+fi
 
 # ---------------------------------------------------------
 # Configure direnv (https://direnv.net/)
@@ -267,8 +263,48 @@ kimages () {
 
 # Add kneato utility function to dump neat object state.
 kneato () {
-  kubectl get $1 $2 -o yaml | kubectl neat
+    local namespace_args=()
+    local resource_args=()
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -n|--namespace)
+                if [[ -n "$2" ]]; then
+                    namespace_args+=("$1" "$2")
+                    shift 2
+                else
+                    echo "Error: Namespace name is missing after $1"
+                    return 1
+                fi
+                ;;
+            *)
+                resource_args+=("$1")
+                shift
+                ;;
+        esac
+    done
+
+    if [ ${#resource_args[@]} -eq 1 ]; then
+        echo kubectl get "${resource_args[0]}" "${namespace_args[@]}" -o yaml #| kubectl neat
+    elif [ ${#resource_args[@]} -eq 2 ]; then
+        echo kubectl get "${resource_args[0]}" "${resource_args[1]}" "${namespace_args[@]}" -o yaml #| kubectl neat
+    else
+        echo "Usage: kneato [-n NAMESPACE|--namespace NAMESPACE] KIND/NAME | KIND NAME"
+        return 1
+    fi
 }
+
+# kneato () {
+#     # Support resource id by 'deploy/my-deploy' form
+#     if [ $# -eq 1 ]; then
+#         kubectl get $1  -o yaml | kubectl neat
+#     # Support resource id by 'deploy my-deploy' form
+#     elif [ $# -eq 2 ]; then
+#         kubectl get $1 $2 -o yaml | kubectl neat
+#     else
+#         echo "Usage: kneato KIND/NAME | KIND NAME"
+#     fi
+# }
 
 # Add kgetall utility function to dump all resources in a namespace.
 function kgetall {
@@ -289,9 +325,11 @@ export PATH=$HOME/go/bin:$PATH
 # ---------------------------------------------------------
 
 [[ -d $HOME/.asdf/installs/python/3.10.5/bin ]] && export PATH=$PATH:$HOME/.asdf/installs/python/3.10.5/bin
-[[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
-[[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
-[[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
+if [[ "$OSTYPE" == darwin* ]]; then
+  [[ -d $HOME/Library/Python/3.9/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.9/bin
+  [[ -d $HOME/Library/Python/3.8/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.8/bin
+  [[ -d $HOME/Library/Python/3.7/bin ]] && export PATH=$PATH:$HOME/Library/Python/3.7/bin
+fi
 
 # ---------------------------------------------------------
 # Rust development
@@ -310,6 +348,7 @@ export PATH="/Users/agooch/.codeium/windsurf/bin:$PATH"
 # ---------------------------------------------------------
 
 [[ -s "$HOME/.aliases" ]]  && source $HOME/.aliases
+[[ -s "$HOME/.kubectl_aliases" ]]  && source $HOME/.kubectl_aliases
 [[ -s "$HOME/.localenv" ]] && source $HOME/.localenv
 [[ -s "$HOME/.localrc" ]]  && source $HOME/.localrc
 
@@ -381,6 +420,3 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
