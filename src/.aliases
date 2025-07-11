@@ -152,3 +152,8 @@ alias box=devbox
 # structurizr aliases
 # ----------------------------------------------------------------------------
 alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite"
+
+# ----------------------------------------------------------------------------
+# MCP-related aliases
+# ----------------------------------------------------------------------------
+alias smithery='npx @smithery/cli'
