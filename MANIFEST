@@ -4,6 +4,7 @@
 .gitconfig
 .gitignore
 .ideavimrc
+.kubectl_aliases
 .lein
 .less_termcap
 .oh-my-zsh/themes/lambdork.zsh-theme
