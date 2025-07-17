@@ -228,6 +228,8 @@ dotimes () {
 # Kubernetes tooling
 # ---------------------------------------------------------
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
