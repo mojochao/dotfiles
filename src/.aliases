@@ -156,4 +156,5 @@ alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr
 # ----------------------------------------------------------------------------
 # MCP-related aliases
 # ----------------------------------------------------------------------------
+alias tm='task-master'
 alias smithery='npx @smithery/cli'
