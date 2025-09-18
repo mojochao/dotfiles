@@ -95,10 +95,10 @@ plugins=(
   helm
   kubectl
   terraform
-  zsh-autopair
-  zsh-autosuggestions
-  zsh-history-substring-search
-  zsh-syntax-highlighting
+#  zsh-autopair
+#  zsh-autosuggestions
+#  zsh-history-substring-search
+#  zsh-syntax-highlighting
 )
 
 # # Disable aws plugin display of aws profile info in RPROMPT.
