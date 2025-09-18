@@ -246,7 +246,7 @@ if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
 fi
 
 # https://github.com/danielfoehrKn/kubeswitch
-source <(switcher init zsh)
+[[ -f $(which switcher) ]] && source <(switcher init zsh)
 
 # Add kimages utility function to list all images in all pods.
 kimages () {
