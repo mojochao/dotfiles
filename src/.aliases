@@ -3,6 +3,7 @@
 # I'm _really_ lazy on the command line!
 # ----------------------------------------------------------------------------
 alias bm=bookmark
+alias bma='bm `basename $PWD`'
 alias e='emacsclient -n' # (e)dit
 alias ep=emacspro
 alias t=tree             # (t)ree
