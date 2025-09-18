@@ -418,3 +418,6 @@ is-at-least 4.3.12 && () {
 
 # opencode
 export PATH=/Users/agooch/.opencode/bin:$PATH
+
+# kiro
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
