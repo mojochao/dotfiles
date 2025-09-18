@@ -228,7 +228,11 @@ dotimes () {
 # Kubernetes tooling
 # ---------------------------------------------------------
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# Add krew-managed kubectl plugins to PATH
+KREW_BIN=${KREW_ROOT:-$HOME/.krew}/bin
+if [[ -d $KREW_BIN ]]; then
+  export PATH=$PATH:$KREW_BIN
+fi
 
 if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
