@@ -234,6 +234,13 @@ if [[ -d $KREW_BIN ]]; then
   export PATH=$PATH:$KREW_BIN
 fi
 
+# Add k8s-toolbox binaries to PATH
+K8S_TOOLBOX_BIN=$HOME/src/github.com/mojochao/k8s-toolbox/bin
+#if [[ -d $K8S_TOOLBOX_BIN ]]; then
+#  export $PATH=$PATH:$K8S_TOOLBOX_BIN
+#fi
+
+# Add kube-dump binaries to PATH
 if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
