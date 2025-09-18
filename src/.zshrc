@@ -415,3 +415,6 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
+
+# opencode
+export PATH=/Users/agooch/.opencode/bin:$PATH
