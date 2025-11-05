@@ -245,6 +245,9 @@ if [[ -d $HOME/src/github.com/WoozyMasta/kube-dump ]]; then
   export PATH=$PATH:$HOME/src/github.com/WoozyMasta/kube-dump
 fi
 
+# Add flux cli completion
+source <(flux completion zsh)
+
 # https://github.com/danielfoehrKn/kubeswitch
 [[ -f $(which switcher) ]] && source <(switcher init zsh)
 
