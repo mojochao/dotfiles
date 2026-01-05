@@ -7,12 +7,12 @@ manage their install and uninstall.
 
 To install dotfiles:
 
-```
-$ ./dotfiles install
+```shell
+make install
 ```
 
 To uninstall dotfiles:
 
-```
-$ ./dotfiles uninstall
+```shell
+make uninstall
 ```

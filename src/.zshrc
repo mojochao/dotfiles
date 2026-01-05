@@ -278,6 +278,63 @@ kneato () {
     fi
 }
 
+# Claude Code status line function
+claude_status_line() {
+    # Read input JSON
+    local input=$(cat)
+
+    # Extract values
+    local model_name=$(echo "$input" | jq -r '.model.display_name')
+    local current_dir=$(echo "$input" | jq -r '.workspace.current_dir')
+    local output_style=$(echo "$input" | jq -r '.output_style.name')
+
+    # Get git branch if in a git repo
+    local git_info=""
+    if git rev-parse --git-dir > /dev/null 2>&1; then
+        local branch=$(git branch --show-current 2>/dev/null)
+        if [ -n "$branch" ]; then
+            # Check for changes
+            local git_status=""
+            if ! git diff-index --quiet HEAD -- 2>/dev/null || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+                git_status="*"
+            fi
+            git_info=" git:$branch$git_status"
+        fi
+    fi
+
+    # Get Kubernetes context if available
+    local kube_info=""
+    if command -v kubectl >/dev/null 2>&1; then
+        local kube_context=$(kubectl config current-context 2>/dev/null)
+        if [ -n "$kube_context" ] && [ "$kube_context" != "default" ]; then
+            local kube_ns=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+            if [ -n "$kube_ns" ]; then
+                kube_info=" ⎈ $kube_context/$kube_ns"
+            else
+                kube_info=" ⎈ $kube_context"
+            fi
+        fi
+    fi
+
+    # Get AWS info if available
+    local aws_info=""
+    if command -v aws >/dev/null 2>&1; then
+        local aws_profile=${AWS_PROFILE:-default}
+        if [ "$aws_profile" != "default" ]; then
+            aws_info=" aws:$aws_profile"
+        fi
+    fi
+
+    # Print status line
+    printf "\033[36m%s\033[0m in \033[34m%s\033[0m%s%s%s [\033[33m%s\033[0m]" \
+        "$(whoami)@$(hostname -s)" \
+        "$(basename "$current_dir")" \
+        "$git_info" \
+        "$aws_info" \
+        "$kube_info" \
+        "$model_name"
+}
+
 # kneato () {
 #     # Support resource id by 'deploy/my-deploy' form
 #     if [ $# -eq 1 ]; then
@@ -404,3 +461,6 @@ is-at-least 4.3.12 && () {
         fi
     }
 }
+
+# ydotool used for sttway text to speech on wayland
+export YDOTOOL_SOCKET=/tmp/.ydotool_socket
