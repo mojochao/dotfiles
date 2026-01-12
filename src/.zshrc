@@ -1,3 +1,4 @@
+
 # Define a utility function to test if some executable file is in PATH.
 is_bin_in_path () {
   if [[ -n $ZSH_VERSION ]]; then
@@ -152,6 +153,12 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
   source $HOME/.asdf/completions/asdf.bash
   export PATH=$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH
 fi
+
+# ---------------------------------------------------------
+# Configure zoxide (https://github.com/ajeetdsouza/zoxide)
+# ---------------------------------------------------------
+
+eval "$(zoxide init zsh)"
 
 # ---------------------------------------------------------
 # Configure direnv (https://direnv.net/)
