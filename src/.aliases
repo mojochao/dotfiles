@@ -113,11 +113,6 @@ alias pgenv='env|grep ^PG'
 alias pgpid='lsof -n -iTCP:5432|grep -i listen'
 
 # ----------------------------------------------------------------------------
-# Python
-# ----------------------------------------------------------------------------
-export PATH="$PATH:$HOME/.poetry/bin"
-
-# ----------------------------------------------------------------------------
 # Terraform
 # ----------------------------------------------------------------------------
 alias tf=terraform
@@ -139,14 +134,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias chrome='open -a "Google Chrome"'
     alias firefox='open -a "Firefox"'
     alias safari='open -a "Safari"'
-    alias ea='open -a Emacs.app ${@:2}'
-    alias ssh-dockervm='screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty'
+else
+    alias o=xdg-open
 fi
-
-# ----------------------------------------------------------------------------
-# miscellaneous aliases
-# ----------------------------------------------------------------------------
-alias box=devbox
 
 # ----------------------------------------------------------------------------
 # structurizr aliases
@@ -157,3 +147,9 @@ alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr
 # MCP-related aliases
 # ----------------------------------------------------------------------------
 alias smithery='npx @smithery/cli'
+
+# ----------------------------------------------------------------------------
+# add-skill aliases
+# https://github.com/vercel-labs/add-skill
+# ----------------------------------------------------------------------------
+alias add-skill='npx add-skill vercel-labs/agent-skills'
