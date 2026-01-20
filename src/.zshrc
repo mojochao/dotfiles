@@ -145,6 +145,12 @@ fi
 export PATH=$HOMEBREW_ROOT/sbin:$HOMEBREW_ROOT/bin:$PATH
 
 # ---------------------------------------------------------
+# Configure bun global installed apps directory
+# ---------------------------------------------------------
+
+export PATH=$HOME/.bun/bin:$PATH
+
+# ---------------------------------------------------------
 # Configure asdf package manager
 # ---------------------------------------------------------
 
