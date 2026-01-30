@@ -471,3 +471,7 @@ is-at-least 4.3.12 && () {
 
 # ydotool used for sttway text to speech on wayland
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+
+# deepagents cli
+# https://docs.langchain.com/oss/python/deepagents/cli
+alias deepagents='uvx deepagents-cli'
