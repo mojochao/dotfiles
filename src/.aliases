@@ -153,3 +153,23 @@ alias smithery='npx @smithery/cli'
 # https://github.com/vercel-labs/add-skill
 # ----------------------------------------------------------------------------
 alias add-skill='npx add-skill vercel-labs/agent-skills'
+
+# deepagents cli
+# https://docs.langchain.com/oss/python/deepagents/cli
+alias deepagents='uvx deepagents-cli'
+
+# mcporter cli
+# https://github.com/steipete/mcporter
+alias mcporter='npx mcporter'
+
+# Vercel Labs skills cli
+# https://github.com/vercel-labs/skills
+alias skills='npx skills'
+
+# nia cli
+# https://github.com/nozomio-labs/nia-wizard
+alias nia='npx nia-wizard@latest'
+
+# pi agent cli
+# https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent 
+#alias pi='npx @mariozechner/pi-coding-agent'
