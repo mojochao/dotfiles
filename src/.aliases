@@ -173,3 +173,7 @@ alias nia='npx nia-wizard@latest'
 # pi agent cli
 # https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent 
 #alias pi='npx @mariozechner/pi-coding-agent'
+
+# Get Shit Done cli
+# https://github.com/gsd-build/get-shit-done
+alias get-shit-done='npx get-shit-done-cc@latest'
