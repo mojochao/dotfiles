@@ -125,7 +125,7 @@ alias tfclean='rm -rf .terraform .terraform.lock.hcl terraform.tfstate*'
 alias vboxfullstop="vboxmanage list runningvms | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} VBoxManage controlvm {} savestate"
 
 # ----------------------------------------------------------------------------
-# OS-specific aliases
+# OS-specific aliases (I only use macOS and Linux)
 # ----------------------------------------------------------------------------
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -136,6 +136,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias safari='open -a "Safari"'
 else
     alias o=xdg-open
+    alias chrome=google-chrome
 fi
 
 # ----------------------------------------------------------------------------
@@ -152,7 +153,7 @@ alias smithery='npx @smithery/cli'
 # add-skill aliases
 # https://github.com/vercel-labs/add-skill
 # ----------------------------------------------------------------------------
-alias add-skill='npx add-skill vercel-labs/agent-skills'
+alias skills='npx add-skill vercel-labs/agent-skills'
 
 # deepagents cli
 # https://docs.langchain.com/oss/python/deepagents/cli
@@ -176,4 +177,4 @@ alias nia='npx nia-wizard@latest'
 
 # Get Shit Done cli
 # https://github.com/gsd-build/get-shit-done
-alias get-shit-done='npx get-shit-done-cc@latest'
+alias gsd='npx get-shit-done-cc@latest'
