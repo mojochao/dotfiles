@@ -182,6 +182,12 @@ if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
 fi
 
 # ---------------------------------------------------------
+# Make man pages pretty and readable
+# ---------------------------------------------------------
+
+function mann () {man $1 | bat -pl man}
+
+# ---------------------------------------------------------
 # Configure forgit
 # https://github.com/wfxr/forgit
 # ---------------------------------------------------------
