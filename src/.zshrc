@@ -173,6 +173,13 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # ---------------------------------------------------------
+# Configure terminal inline image viewer
+# https://github.com/hpjansson/chafa
+# ---------------------------------------------------------
+
+alias img=chafa
+
+# ---------------------------------------------------------
 # Configure diff-so-fancy
 # https://github.com/so-fancy/diff-so-fancy
 # ---------------------------------------------------------
