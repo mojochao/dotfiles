@@ -129,6 +129,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ---------------------------------------------------------
 # Configure brew package manager
+# https://brew.sh/
 # ---------------------------------------------------------
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -146,6 +147,7 @@ export PATH=$HOME/.bun/bin:$PATH
 
 # ---------------------------------------------------------
 # Configure asdf package manager
+# https://asdf-vm.com/
 # ---------------------------------------------------------
 
 if [[ -f $HOME/.asdf/asdf.sh ]]; then
@@ -155,25 +157,29 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
 fi
 
 # ---------------------------------------------------------
-# Configure direnv (https://direnv.net/)
+# Configure direnv
+# https://direnv.net/
 # ---------------------------------------------------------
 
 eval "$(direnv hook zsh)"
 
 # ---------------------------------------------------------
-# Configure starship (https://starship.rs/)
+# Configure starship
+# https://starship.rs/
 # ---------------------------------------------------------
 
 eval "$(starship init zsh)"
 
 # ---------------------------------------------------------
-# Configure zoxide (https://github.com/ajeetdsouza/zoxide)
+# Configure zoxide
+# https://github.com/ajeetdsouza/zoxide
 # ---------------------------------------------------------
 
 eval "$(zoxide init zsh)"
 
 # ---------------------------------------------------------
 # Configure eza for improved ls
+# https://github.com/eza-community/eza
 # ---------------------------------------------------------
 
 alias lsg="eza --icons --grid --group-directories-first"
