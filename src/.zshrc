@@ -173,6 +173,12 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # ---------------------------------------------------------
+# Configure eza for improved ls
+# ---------------------------------------------------------
+
+alias lsg="eza --icons --grid --group-directories-first"
+
+# ---------------------------------------------------------
 # Configure terminal inline image viewer
 # https://github.com/hpjansson/chafa
 # ---------------------------------------------------------
