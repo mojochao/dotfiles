@@ -149,12 +149,6 @@ alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr
 # ----------------------------------------------------------------------------
 alias smithery='npx @smithery/cli'
 
-# ----------------------------------------------------------------------------
-# add-skill aliases
-# https://github.com/vercel-labs/add-skill
-# ----------------------------------------------------------------------------
-alias skills='npx add-skill vercel-labs/agent-skills'
-
 # deepagents cli
 # https://docs.langchain.com/oss/python/deepagents/cli
 alias deepagents='uvx deepagents-cli'
@@ -170,10 +164,6 @@ alias skills='npx skills'
 # nia cli
 # https://github.com/nozomio-labs/nia-wizard
 alias nia='npx nia-wizard@latest'
-
-# pi agent cli
-# https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent 
-#alias pi='npx @mariozechner/pi-coding-agent'
 
 # Get Shit Done cli
 # https://github.com/gsd-build/get-shit-done
