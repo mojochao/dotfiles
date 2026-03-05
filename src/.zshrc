@@ -490,3 +490,6 @@ is-at-least 4.3.12 && () {
 
 # ydotool used for sttway text to speech on wayland
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
+
+# Enable Claude Code use of LSP
+export ENABLE_LSP_TOOL=1
