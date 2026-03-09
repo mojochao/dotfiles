@@ -159,3 +159,9 @@ alias nia='npx nia-wizard@latest'
 # Get Shit Done cli
 # https://github.com/gsd-build/get-shit-done
 alias gsd='npx get-shit-done-cc@latest'
+
+# ----------------------------------------------------------------------------
+# pathaction cli
+# https://github.com/jamescherti/pathaction
+# ----------------------------------------------------------------------------
+alias pathaction='uvx pathaction'
