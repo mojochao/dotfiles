@@ -3,10 +3,9 @@
 # I'm _really_ lazy on the command line!
 # ----------------------------------------------------------------------------
 alias bm=bookmark
-alias e='emacsclient -n' # (e)dit
-alias ep=emacspro
+alias e='emacsclient'    # (e)dit
 alias t=tree             # (t)ree
-alias v=less             # (v)iew
+alias v=bat              # (v)iew
 alias l='ls -1'          # (l)ist
 alias la='ls -a1'        # (l)ist (a)ll
 alias ll='ls -l'         # (l)ong (l)list
@@ -15,11 +14,6 @@ alias paths="echo $PATH|tr ':' '\n'"
 alias now="date +%s"
 alias nowiso="date -u +'%Y-%m-%dT%H:%M:%SZ'"
 alias dea='direnv allow'
-
-# ----------------------------------------------------------------------------
-# ag (a.k.a The Silver Searcher) configuration.
-# ----------------------------------------------------------------------------
-alias ag='ag --hidden'
 
 # ----------------------------------------------------------------------------
 # Argo Project
@@ -141,6 +135,7 @@ fi
 
 # ----------------------------------------------------------------------------
 # structurizr aliases
+# https://structurizr.com/
 # ----------------------------------------------------------------------------
 alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite"
 
@@ -156,10 +151,6 @@ alias deepagents='uvx deepagents-cli'
 # mcporter cli
 # https://github.com/steipete/mcporter
 alias mcporter='npx mcporter'
-
-# Vercel Labs skills cli
-# https://github.com/vercel-labs/skills
-alias skills='npx skills'
 
 # nia cli
 # https://github.com/nozomio-labs/nia-wizard
