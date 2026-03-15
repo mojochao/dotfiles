@@ -488,8 +488,13 @@ is-at-least 4.3.12 && () {
     }
 }
 
-# ydotool used for sttway text to speech on wayland
+# ydotool used for sttway text to speech on wayland.
+# https://github.com/ReimuNotMoe/ydotool
 export YDOTOOL_SOCKET=/tmp/.ydotool_socket
 
 # Enable Claude Code use of LSP
 export ENABLE_LSP_TOOL=1
+
+# Enable worktrunk if installed.
+# https://github.com/max-sixty/worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
