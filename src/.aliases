@@ -165,3 +165,9 @@ alias gsd='npx get-shit-done-cc@latest'
 # https://github.com/jamescherti/pathaction
 # ----------------------------------------------------------------------------
 alias pathaction='uvx pathaction'
+
+# ----------------------------------------------------------------------------
+# tmux ide for orchestrated agents
+# https://github.com/wavyrai/tmux-ide
+# ----------------------------------------------------------------------------
+alias tmux-ide='npx tmux-ide'
