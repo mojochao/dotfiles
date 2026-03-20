@@ -140,6 +140,14 @@ fi
 alias sl="docker run -it --name structurizr-lite --rm -p  8080:8080 -v $PWD:/usr/local/structurizr structurizr/lite"
 
 # ----------------------------------------------------------------------------
+# Agent skills-related aliases
+# ----------------------------------------------------------------------------
+
+# skilz cli
+# https://github.com/SpillwaveSolutions/skilz-cli
+alias skilz='uvx skilz'
+
+# ----------------------------------------------------------------------------
 # MCP-related aliases
 # ----------------------------------------------------------------------------
 alias smithery='npx @smithery/cli'
