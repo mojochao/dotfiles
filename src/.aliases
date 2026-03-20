@@ -165,8 +165,8 @@ alias mcporter='npx mcporter'
 alias nia='npx nia-wizard@latest'
 
 # Get Shit Done cli
-# https://github.com/gsd-build/get-shit-done
-alias gsd='npx get-shit-done-cc@latest'
+# https://github.com/gsd-build/gsd-2
+alias gsd='npx gsd-pi@latest'
 
 # ----------------------------------------------------------------------------
 # pathaction cli
