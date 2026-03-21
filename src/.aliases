@@ -179,3 +179,10 @@ alias pathaction='uvx pathaction'
 # https://github.com/wavyrai/tmux-ide
 # ----------------------------------------------------------------------------
 alias tmux-ide='npx tmux-ide'
+
+# ----------------------------------------------------------------------------
+# Private RAG system with semantic context ingestion to improve source of
+# truth of reliable sources.
+# https://github.com/SpillwaveSolutions/agent-brain
+# ----------------------------------------------------------------------------
+alias agent-brain='uvx --from agent-brain-cli agent-brain'
