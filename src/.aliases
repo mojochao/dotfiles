@@ -3,13 +3,14 @@
 # I'm _really_ lazy on the command line!
 # ----------------------------------------------------------------------------
 alias bm=bookmark
-alias e='emacsclient'    # (e)dit
-alias t=tree             # (t)ree
-alias v=bat              # (v)iew
-alias l='ls -1'          # (l)ist
-alias la='ls -a1'        # (l)ist (a)ll
-alias ll='ls -l'         # (l)ong (l)list
-alias lla='ls -al'       # (l)ong (l)list (a)ll
+alias e='emacsclient -c'  # (e)dit in emacs GUI
+alias et='emacsclient -t' # (e)dit in emacs (T)UI
+alias t=tree              # (t)ree
+alias v=bat               # (v)iew
+alias l='ls -1'           # (l)ist
+alias la='ls -a1'         # (l)ist (a)ll
+alias ll='ls -l'          # (l)ong (l)list
+alias lla='ls -al'        # (l)ong (l)list (a)ll
 alias paths="echo $PATH|tr ':' '\n'"
 alias now="date +%s"
 alias nowiso="date -u +'%Y-%m-%dT%H:%M:%SZ'"

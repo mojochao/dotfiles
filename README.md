@@ -1,9 +1,9 @@
-# dotfiles
+# My dotfiles config
 
 This repo contains various dotfiles that I use, as well as some tooling to
 manage their install and uninstall.
 
-# usage
+## usage
 
 To install dotfiles:
 

@@ -16,7 +16,8 @@ is_bin_in_path () {
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
-export EDITOR=vim
+export EDITOR='emacsclient'
+export VISUAL='emacsclient'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
