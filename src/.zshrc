@@ -21,6 +21,13 @@ export VISUAL='emacsclient'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# XDG config locations.
+# https://specifications.freedesktop.org/basedir/
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+
 # https://github.com/ohmyzsh/ohmyzsh/issues/8682
 if [[ -n "$INSIDE_EMACS" ]]; then
    # export TERM=
@@ -193,13 +200,11 @@ alias lsg="eza --icons --grid --group-directories-first"
 alias img=chafa
 
 # ---------------------------------------------------------
-# Configure diff-so-fancy
-# https://github.com/so-fancy/diff-so-fancy
+# Configure pretty git diffs
+# https://nickjanetakis.com/blog/awesome-git-diffs-with-delta-fzf-and-a-little-shell-scripting
 # ---------------------------------------------------------
 
-if [[ -d $HOME/src/github.com/so-fancy/diff-so-fancy ]]; then
-  export PATH=$PATH:$HOME/src/github.com/so-fancy/diff-so-fancy
-fi
+export DELTA_FEATURES="diff-so-fancy"
 
 # ---------------------------------------------------------
 # Make man pages pretty and readable
@@ -227,6 +232,15 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export ICLOUD_DIR=~/Library/Mobile\ Documents/com~apple~CloudDocs
   # Configure iterm2 integration.
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
+
+# ---------------------------------------------------------
+# Configure Linux-specific things
+# ---------------------------------------------------------
+
+if [[ "$OSTYPE" == linux* ]]; then
+  alias emacsd-restart='systemctl --user restart emacs-daemon.service'
+  alias emacsd-status='systemctl --user status emacs-daemon.service'
 fi
 
 # ---------------------------------------------------------

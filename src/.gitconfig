@@ -3,10 +3,16 @@
 	email = allen.gooch@gmail.com
 
 [core]
-	editor = vim
+	editor = emacsclient -c
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 	autocrlf = input
+
+[delta]
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
 
 [push]
 	autoSetupRemote = true
