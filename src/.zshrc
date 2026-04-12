@@ -15,6 +15,7 @@ is_bin_in_path () {
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib:$LD_LIBRARY_PATH
 export MANPATH=$MANPATH:$HOME/share/man:/usr/local/man
 export EDITOR='emacsclient'
 export VISUAL='emacsclient'
